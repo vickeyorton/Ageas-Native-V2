@@ -3,7 +3,7 @@ import { View,TextInput, Text,ImageBackground,TouchableOpacity,Image,TouchableWi
 import Container from '../../components/common/Container';
 import styles from './styles';
 // import Footer from '../../components/common/Footer';
-import { CLAIM_PAGE } from '../../constants/routeNames';
+import { INCIDENT_PAGE } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import color from "../../assets/theme/color";
@@ -115,7 +115,7 @@ const HomeScreen = ({navigation}) => {
                     //     <Text style={{flex:1,justifyContent:"center",textAlign:"center",fontSize:15}}>{data.name}</Text>
                     // </TouchableOpacity>
                     <TouchableWithoutFeedback key={index}
-                    onPress={()=>{navigation.navigate(CLAIM_PAGE)}}>
+                    onPress={()=>{navigation.navigate(INCIDENT_PAGE)}}>
                         <View style={[styles.tabContainer,{ borderRightWidth: checkIndexIsSix(index) ? 1 : 0},{ borderTopWidth: 0},{width:checkIndexGreaterthan(index) ? "33.33%" : "50%"}]} >
                             <Image style={{width:50,height:50}} source={{uri:data.pic}}/>
                             <Text style={{flex:1,justifyContent:"center",textAlign:"center",fontSize:15}}>{data.name}</Text>

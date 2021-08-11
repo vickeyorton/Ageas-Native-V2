@@ -5,7 +5,7 @@ import Input from '../../components/common/Input';
 import CustomBtn from '../../components/common/CustomBtn';
 import styles from './styles';
 // import Footer from '../../components/common/Footer';
-import {INCIDENT_PAGE} from '../../constants/routeNames';
+import {HOME_PAGE} from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import color from '../../assets/theme/color';
@@ -27,7 +27,7 @@ const LoginScreen = ({navigation}) => {
 
     const signIn = () => {
         if(value && pass && isValidEmail ){
-            navigation.navigate(INCIDENT_PAGE)
+            navigation.navigate(HOME_PAGE)
         }
     }
 

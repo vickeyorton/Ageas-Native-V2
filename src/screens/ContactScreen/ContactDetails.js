@@ -224,7 +224,7 @@ const Contact = ({navigation}) => {
             
             <View style={{padding:5}}></View>
               <Text style={styles.question}>
-                Who was the last drive of the vehicle?
+                Who was the last driver of the vehicle?
               </Text>
               <View style={styles.RadioBtnWrap}>
                 {PROP2.map(res => {

@@ -8,7 +8,7 @@ import Input from '../../components/common/Input';
 import CustomBtn from '../../components/common/CustomBtn';
 import color from '../../assets/theme/color';
 import styles from './styles';
-import {CONTACT_PAGE} from '../../constants/routeNames';
+import {INVOLVED_PAGE} from '../../constants/routeNames';
 import {useSelector, useDispatch} from 'react-redux';
 import {GET_INCIDENT} from '../../context/actions';
 import { useNavigation } from '@react-navigation/native';
@@ -117,7 +117,7 @@ const IncidentScreen = ({navigation}) => {
                 situation:selectedSituation
             }
             dispatch({type:GET_INCIDENT, payload:incident});
-            navigation.navigate(CONTACT_PAGE);
+            navigation.navigate(INVOLVED_PAGE);
             // navigation.navigate(SUMMARY_PAGE);
         }
     }
@@ -350,7 +350,7 @@ const IncidentScreen = ({navigation}) => {
                                 style={[styles.regBtn,{backgroundColor:getA1RegBtn()}]}
                                 onPress={()=>{vehicleRegis()}}
                             >
-                                <Text style={[styles.regBtnText,{color:getA1RegText()}]}>A1</Text>
+                                <Text style={[styles.regBtnText,{color:getA1RegText()}]}>SN67 ANX</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.regBtn,{backgroundColor:getOtherRegBtn()}]}

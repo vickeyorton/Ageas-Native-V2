@@ -15,7 +15,7 @@ import Thankyou from '../screens/Thankyou/Thankyou';
 const HomeNavigator = () => {
     const Home = createStackNavigator();
     return (
-        <Home.Navigator initialRouteName={HOME_PAGE} 
+        <Home.Navigator initialRouteName={AUTH_PAGE} 
         screenOptions={{ headerStyle: { backgroundColor: '#8e419c' } ,
         headerTintColor: '#fff'}}>
             <Home.Screen name={HOME_PAGE} component={HomeScreen}/>

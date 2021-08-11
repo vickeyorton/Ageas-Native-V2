@@ -43,53 +43,7 @@ const Summary =({navigation}) => {
             You have now entered all of your claim details. Please review the
             details and once you are happy you can submit your claim.
       </Text>
-        <View style={styles.summaryContent}>
-          <View style={styles.header}>
-           <Text style={{fontSize: 18 , color : "white"}}>Incident details</Text>
-            <TouchableOpacity onPress={() => setShowIncident(!showIncident)}>
-              {showIncident ? (
-                <AntDesign name="up" size={18} color="white" />
-              ) : (
-                <AntDesign name="down" size={18} color="white" />
-              )}
-            </TouchableOpacity>
-        
-          </View>
-           {showIncident ? (
-            <View style={{ padding : 10}}>
-              <View style={{marginBottom: 7}}>
-                <Text style={{fontSize : 16}}>Date and time</Text>
-                <Text style={{fontSize : 16}}>
-                  {incident ? incident.date : 'DD'}/
-                  {incident ? incident.month : 'MM'}/
-                  {incident ? incident.year : 'YYYY'}{' '}
-                  {incident ? incident.hour : 'H'}:
-                  {incident ? incident.minute : 'M'}
-                </Text>
-              </View>
-              <View style={{marginBottom: 7}}>
-                <Text style={{fontSize : 16}}>Vehicle registration</Text>
-                <Text style={{fontSize : 16}}>
-                 {incident ? incident.vehicleReg : '-'} 
-                </Text>
-              </View>
-              <View  style={styles.editContainer} >
-              <View>
-                <Text style={{fontSize : 16}}>Circumstance</Text>
-                <Text style={{fontSize : 16}}>
-                  {incident ? incident.situation : '-'}
-                </Text>
-              </View>
-              <View style={styles.editSection}>
-                <TouchableOpacity onPress={() => navigation.navigate(INCIDENT_PAGE)}>
-                  <Text style={styles.edit}>Edit</Text>
-                </TouchableOpacity>
-              </View>
-              </View>
-            </View>
-          ) : null}
-        </View>
-        <View style={styles.summaryContent}>
+      <View style={styles.summaryContent}>
           <View style={styles.header}>
            <Text style={{fontSize: 18 , color : "white"}}>Contact details</Text>
             <TouchableOpacity onPress={() => setShowContact(!showContact)}>
@@ -131,6 +85,54 @@ const Summary =({navigation}) => {
             </View>
           ) : null}
         </View>
+
+        <View style={styles.summaryContent}>
+          <View style={styles.header}>
+           <Text style={{fontSize: 18 , color : "white"}}>Incident details</Text>
+            <TouchableOpacity onPress={() => setShowIncident(!showIncident)}>
+              {showIncident ? (
+                <AntDesign name="up" size={18} color="white" />
+              ) : (
+                <AntDesign name="down" size={18} color="white" />
+              )}
+            </TouchableOpacity>
+        
+          </View>
+           {showIncident ? (
+            <View style={{ padding : 10}}>
+              <View style={{marginBottom: 7}}>
+                <Text style={{fontSize : 16}}>Date and time</Text>
+                <Text style={{fontSize : 16}}>
+                  {incident ? incident.date : 'DD'}/
+                  {incident ? incident.month : 'MM'}/
+                  {incident ? incident.year : 'YYYY'}{' '}
+                  {incident ? incident.hour : 'H'}:
+                  {incident ? incident.minute : 'M'}
+                </Text>
+              </View>
+              <View style={{marginBottom: 7}}>
+                <Text style={{fontSize : 16}}>Vehicle registration</Text>
+                <Text style={{fontSize : 16}}>
+                 {incident ? incident.vehicleReg : '-'} 
+                </Text>
+              </View>
+              <View  style={styles.editContainer} >
+              <View style={{width:"80%"}}>
+                <Text style={{fontSize : 16}}>Circumstance</Text>
+                <Text style={{fontSize : 16}}>
+                  {incident ? incident.situation : '-'}
+                </Text>
+              </View>
+              <View style={styles.editSection}>
+                <TouchableOpacity onPress={() => navigation.navigate(INCIDENT_PAGE)}>
+                  <Text style={styles.edit}>Edit</Text>
+                </TouchableOpacity>
+              </View>
+              </View>
+            </View>
+          ) : null}
+        </View>
+      
         <View style={styles.summaryContent}>
           <View style={styles.header}>
            <Text style={{fontSize: 18 , color : "white"}}>Involved parties details</Text>
@@ -219,6 +221,7 @@ const styles = StyleSheet.create({
   editContainer : {
      justifyContent: 'space-between',
      flexDirection: 'row', 
+     flex:1
   },
   editSection: {
     borderWidth: 1,
