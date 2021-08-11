@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Text, View, StyleSheet ,TouchableOpacity,ScrollView} from 'react-native';
+import { Text, View, StyleSheet ,TouchableOpacity,ScrollView,Alert, Modal} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {
   THANKYOU_PAGE,
@@ -10,6 +10,7 @@ import {
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {HOME_PAGE} from '../../constants/routeNames';
 
 
 const Summary =({navigation}) => {
@@ -35,10 +36,54 @@ const Summary =({navigation}) => {
   const incident = useSelector(state => state.CarReducer.incident);
   const contactObj = useSelector(state => state.CarReducer.contactObj);
   const involvedObj = useSelector(state => state.CarReducer.involvedObj);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <ScrollView style={styles.scrollview}>
     <View style={styles.container}>
+    <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        {/* <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <TouchableOpacity
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </TouchableOpacity>
+          </View>
+        </View> */}
+        <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+     
+        <View style={[styles.header,{borderRadius: 20}]}>
+           <Text style={{fontSize: 18 , color : "white", width: "100%", textAlign:"center"}}>Thankyou</Text>
+           </View>
+     <View style={styles.content}>
+       <Text style={styles.para1}>Thank you for submitting your claim, one of our claim handlers will be in touch by the end of the next working day.</Text>
+       <View style={styles.contentBox}>
+       <Text style={styles.para2}>The claim number for your policy is {"\n"}<Text style={[styles.policyNum,{color:'#8e419c'}]}>4062863N</Text></Text> 
+      <View style={styles.line1} />
+       <Text style={styles.para3}>If you need to contact us please call {"\n"} <Text style={styles.contact}>03451 122 3018</Text></Text>
+      </View>
+       <View style={styles.btnCont}>
+     <TouchableOpacity onPress={()=>navigation.navigate(HOME_PAGE)} style={styles.homeBtn}><Text style={styles.homeBtnText}>Home</Text></TouchableOpacity>
+     </View>
+     </View>
+     </View>
+    
+    
+   </View>
+      </Modal>
+
       <Text style={styles.headingText}>
             You have now entered all of your claim details. Please review the
             details and once you are happy you can submit your claim.
@@ -184,7 +229,7 @@ const Summary =({navigation}) => {
         <View style={styles.submitSection}>
           <TouchableOpacity
             style={styles.submitButton}
-            onPress={() => navigation.navigate(THANKYOU_PAGE)}>
+            onPress={() => setModalVisible(true)}>
             <Text style={styles.submitButtonText}>Submit</Text>
           </TouchableOpacity>
         </View>
@@ -216,7 +261,8 @@ const styles = StyleSheet.create({
    justifyContent: 'space-between',
    flexDirection: 'row', 
    backgroundColor :  '#8e419c' ,
-   padding : 7
+   padding : 7,
+   marginTop:5
   },
   editContainer : {
      justifyContent: 'space-between',
@@ -256,6 +302,80 @@ const styles = StyleSheet.create({
     backgroundColor: "#8e419c",
     alignSelf: 'stretch',
     marginVertical : 5
+  },
+  line1 : {
+    height: 1,
+    backgroundColor: "black",
+    alignSelf: 'stretch',
+    marginVertical : 10
+  },
+ 
+  content : {
+    padding : 10
+  },
+  contentBox : {
+    borderWidth : 1,
+    borderColor : "#8e419c",
+    padding : 8,
+    marginVertical : 15
+  },
+  para1 : {
+    fontSize : 17,
+    lineHeight : 25
+  },
+  para2 : {
+    fontSize : 17,
+    lineHeight : 25
+  },
+ para3 : {
+   fontSize : 17,
+   lineHeight : 25
+ },
+
+  contact : {
+    color : "#8e419c"
+    
+  },
+  btnCont:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop:10
+  },
+  homeBtn:{
+    borderWidth: 1,
+    width: "100%",
+    backgroundColor: '#6FA313',
+    borderColor: '#fff',
+    // borderRadius: 26,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 10,
+  },
+  homeBtnText:{
+    color:"#fff",
+    fontSize:17
+
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor:"rgba(0, 0, 0, 0.8)"
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 5,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
   },
  
 });

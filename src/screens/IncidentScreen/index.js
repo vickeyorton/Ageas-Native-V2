@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import Container from '../../components/common/Container';
 // import Footer from '../../components/common/Footer';
 import {Picker} from '@react-native-community/picker';
@@ -13,6 +13,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {GET_INCIDENT} from '../../context/actions';
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import ImagePicker from 'react-native-image-crop-picker';
 
 
 
@@ -43,7 +44,7 @@ const IncidentScreen = ({navigation}) => {
     const [a1,setA1] = useState(true);
     const [other,setOther] = useState(false);
     const [vehicleReg, setVehicleReg] = useState("A1");
-    
+    const [image, setImage] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
 
     // useEffect(() => {
         const incident = useSelector(state => state.CarReducer.incident);
@@ -58,6 +59,7 @@ const IncidentScreen = ({navigation}) => {
             setSelectedSituation(incident.situation);
             onChangeStreet(incident.street);
             onChangeTown(incident.town);
+            setImage(incident.image);
         }
       },[]);
     
@@ -103,6 +105,28 @@ const IncidentScreen = ({navigation}) => {
         }
     }
 
+    const openGalleryHandle = () =>{
+        ImagePicker.openPicker({
+            width: 300,
+            height: 400,
+            cropping: true
+          }).then(image => {
+            console.log(image);
+            setImage(image.path)
+          });
+    }
+
+    const openCameraHandle = () =>{
+        ImagePicker.openCamera({
+            width: 300,
+            height: 400,
+            cropping: true,
+          }).then(image => {
+            console.log(image);
+            setImage(image.path)
+          });
+    }
+
     const continueHandle = () =>{
         if(selectedDate && selectedMonth && selectedYear && selectedHour && selectedMinute && vehicleReg && selectedSituation && street && town !== ""){
             let incident = {
@@ -114,7 +138,8 @@ const IncidentScreen = ({navigation}) => {
                 vehicleReg:vehicleReg,
                 street:street,
                 town:town,
-                situation:selectedSituation
+                situation:selectedSituation,
+                image:image
             }
             dispatch({type:GET_INCIDENT, payload:incident});
             navigation.navigate(INVOLVED_PAGE);
@@ -401,6 +426,28 @@ const IncidentScreen = ({navigation}) => {
                                 </Picker>
                             </View>
                         </View>
+                    </View>
+                    <View style={styles.imgContainer}>
+                        <Text style={{paddingVertical:10,fontSize:16}}>Upload an image</Text>
+                        <ImageBackground source ={{
+                            uri: image
+                        }} style={{height:100, width:100,marginBottom:10}} imageStyle={{borderRadius:15}}></ImageBackground>
+                        
+                    <CustomBtn 
+                                bgColor={color.white} color={color.purple} 
+                                borderColor={color.purple} title="Upload a photo"
+                                onPress={()=>{openGalleryHandle()}}
+                                borderRadius={0}
+                                width="100%"
+                        /> 
+                        <View style={{padding:5}}></View>    
+                    <CustomBtn 
+                                bgColor={color.white} color={color.purple} 
+                                borderColor={color.purple} title="Take a photo"
+                                onPress={()=>{openCameraHandle()}}
+                                borderRadius={0}
+                                width="100%"
+                        />                  
                     </View>
                     <View style={{flex:1,flexDirection:"row",paddingVertical:10,paddingVertical:20}}>
                         <CustomBtn 
