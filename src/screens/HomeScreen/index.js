@@ -135,7 +135,7 @@ const HomeScreen = ({navigation}) => {
     }
 
     return (
-        <Container>
+        <Container style={{backgroundColor:"#fff"}}>
             <View style={styles.padding_20}>
                 
             <View style={{marginVertical:15}}>
@@ -143,18 +143,32 @@ const HomeScreen = ({navigation}) => {
                     onPress={()=>{claim()}}
                     />
                 </View>
+                
+                
 
-                <View style={{paddingBottom:10}}>
+                <View style={{
+                    // paddingBottom:10,
+                    backgroundColor:"#bce4e9",
+                    // backgroundColor:"#ebecf0",
+                    paddingVertical:20,
+                    paddingHorizontal:5 ,
+                    borderRadius:10,
+                    marginTop:10,
+                    marginBottom:20,
+                    shadowColor: 'black',
+                    shadowOpacity: 0.9,
+                    elevation: 10}}>
                     <View style={styles.row}>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center"}}>
-                                <View style={{backgroundColor:color.purple,
+                                <View style={{backgroundColor:"#26c8d4",
                                     width:70,height:70,
-                                    // padding:10,
-                                    borderRadius:100,
-                                    alignItems:"center",
+                                    borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
-                                    marginBottom:5}}>
+                                    marginBottom:5,
+                                    shadowColor: 'black',
+                                    shadowOpacity: 0.9,
+                                    elevation: 10,}}>
                                     <Text style={{color:"#fff",
                                         fontSize:20,fontWeight:"700"}}>1</Text>
                                     
@@ -165,12 +179,14 @@ const HomeScreen = ({navigation}) => {
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{backgroundColor:color.purple,
+                                <View style={{backgroundColor:"#26c8d4",
                                     width:70,height:70,
-                                    // padding:10,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
-                                    marginBottom:5}}>
+                                    marginBottom:5,
+                                    shadowColor: 'black',
+                                    shadowOpacity: 0.9,
+                                    elevation: 10,}}>
                                     <Text style={{color:"#fff",
                                         fontSize:20,fontWeight:"700"}}>1</Text>
                                 </View>
@@ -180,12 +196,14 @@ const HomeScreen = ({navigation}) => {
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{backgroundColor:color.purple,
+                                <View style={{backgroundColor:"#26c8d4",
                                     width:70,height:70,
-                                    // padding:10,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
-                                    marginBottom:5}}>
+                                    marginBottom:5,
+                                    shadowColor: 'black',
+                                    shadowOpacity: 0.9,
+                                    elevation: 10,}}>
                                     <Text style={{color:"#fff",
                                         fontSize:20,fontWeight:"700"}}> &#163;595</Text>
                                     
@@ -200,7 +218,7 @@ const HomeScreen = ({navigation}) => {
                     {showEditPersonal ? 
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white"}}>Personal details</Text>
+                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Personal details</Text>
                             </View>
                                 <View style={{ padding : 10}}>
                                 <View style={{padding:5}}></View>
@@ -260,7 +278,7 @@ const HomeScreen = ({navigation}) => {
                     : 
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white"}}>Personal details</Text>
+                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Personal details</Text>
                                     <TouchableOpacity onPress={() => setShowPersonal(!showPersonal)}>
                                     {showPersonal ? (
                                         <AntDesign name="up" size={18} color="white" />
@@ -275,7 +293,7 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{marginBottom: 7}}>
                                     <Text style={{fontSize : 16}}>Policy holder</Text>
                                     <Text style={{fontSize : 16}}>
-                                    {policyHolder ? policyHolder : 'Daniel'}
+                                    {policyHolder !== null ? policyHolder : 'Daniel'}
                                     {/* {policyHolder} */}
                                     </Text>
                                 </View>
@@ -321,7 +339,7 @@ const HomeScreen = ({navigation}) => {
                     {showEditPolicy ? 
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white"}}>Policy details</Text>
+                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Policy details</Text>
                             </View>
                                 <View style={{ padding : 10}}>
                                 <View style={{padding:5}}></View>
@@ -553,7 +571,7 @@ const HomeScreen = ({navigation}) => {
                     :
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white"}}>Policy details</Text>
+                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Policy details</Text>
                                     <TouchableOpacity onPress={() => setShowPolicy(!showPolicy)}>
                                     {showPolicy ? (
                                         <AntDesign name="up" size={18} color="white" />
@@ -617,7 +635,7 @@ const HomeScreen = ({navigation}) => {
                     }
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white"}}>Claim details</Text>
+                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Claim details</Text>
                                     <TouchableOpacity onPress={() => setShowClaim(!showClaim)}>
                                     {showClaim ? (
                                         <AntDesign name="up" size={18} color="white" />
