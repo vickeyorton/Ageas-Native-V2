@@ -21,7 +21,19 @@ const CarReducer = (state = [], action) => {
           ...state,
           addPassObj: action.payload,
         };
+        case "GET_PERSONAL":
+        return {
+          ...state,
+          personalObj: action.payload,
+        };
+        case "GET_POLICY":
+        return {
+          ...state,
+          policyObj: action.payload,
+        };
   
+  
+
       default:
         return {
           state,

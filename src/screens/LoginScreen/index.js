@@ -5,7 +5,7 @@ import Input from '../../components/common/Input';
 import CustomBtn from '../../components/common/CustomBtn';
 import styles from './styles';
 // import Footer from '../../components/common/Footer';
-import {HOME_PAGE} from '../../constants/routeNames';
+import {MAKE_CLAIM_PAGE,HOME_PAGE} from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import color from '../../assets/theme/color';

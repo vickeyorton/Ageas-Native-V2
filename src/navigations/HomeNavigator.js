@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AUTH_PAGE, CLAIM_PAGE, HOME_PAGE, SIGNIN_PAGE,INCIDENT_PAGE, CONTACT_PAGE, INVOLVED_PAGE, ADDPASSENGER_PAGE, SUMMARY_PAGE, THANKYOU_PAGE } from '../constants/routeNames';
-import HomeScreen from '../screens/HomeScreen';
+import { AUTH_PAGE, CLAIM_PAGE,MAKE_CLAIM_PAGE , HOME_PAGE, SIGNIN_PAGE,INCIDENT_PAGE, CONTACT_PAGE, INVOLVED_PAGE, ADDPASSENGER_PAGE, SUMMARY_PAGE, THANKYOU_PAGE } from '../constants/routeNames';
+import MakeClaimScreen from '../screens/MakeClaimScreen';
 import ClaimScreen from '../screens/ClaimScreen';
 import AuthScreen from '../screens/AuthScreen';
 import SigninScreen from '../screens/LoginScreen';
@@ -11,6 +11,7 @@ import Involved from '../screens/InvolvedScreen/InvolvedPartyDetails';
 import AddPassenger from '../screens/AddPassengerScreen/AddPassenger';
 import Summary from '../screens/Summary/Summary';
 import Thankyou from '../screens/Thankyou/Thankyou';
+import HomeScreen from '../screens/HomeScreen';
 
 const HomeNavigator = () => {
     const Home = createStackNavigator();
@@ -18,8 +19,9 @@ const HomeNavigator = () => {
         <Home.Navigator initialRouteName={AUTH_PAGE} 
         screenOptions={{ headerStyle: { backgroundColor: '#8e419c' } ,
         headerTintColor: '#fff'}}>
-            <Home.Screen name={HOME_PAGE} component={HomeScreen}/>
+            <Home.Screen name={MAKE_CLAIM_PAGE} component={MakeClaimScreen}/>
             <Home.Screen name={CLAIM_PAGE} component={ClaimScreen}/>
+            <Home.Screen name={HOME_PAGE} component={HomeScreen}/>
             <Home.Screen name={AUTH_PAGE} component={AuthScreen}/>
             <Home.Screen name={SIGNIN_PAGE} component={SigninScreen}/>
             <Home.Screen name={INCIDENT_PAGE} component={IncidentScreen}/>
