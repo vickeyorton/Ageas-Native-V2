@@ -424,7 +424,7 @@ const HomeScreen = ({navigation}) => {
                                     </View>
                                 </View>
                                 <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
-                                    <View style={styles.editSection}>
+                                    <View style={[styles.editSection ]}>
                                         <TouchableOpacity onPress={() => editPersonal()}>
                                         <Text style={styles.edit}>
                                         
@@ -432,7 +432,9 @@ const HomeScreen = ({navigation}) => {
                                         </Text>
                                         </TouchableOpacity>
                                     </View>
+                                    
                                 </View>
+                               
                             </View>
                         ) : null}
                         </View>
@@ -721,11 +723,19 @@ const HomeScreen = ({navigation}) => {
                                     </View>
                                 </View>
                                 <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
-                                    <View style={styles.editSection}>
+                                    <View style={[styles.editSection,{marginRight:20}]}>
                                         <TouchableOpacity onPress={() => editPolicy()}>
                                         <Text style={styles.edit}>
                                         {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
                                             Edit
+                                        </Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                    <View style={styles.editSection}>
+                                        <TouchableOpacity >
+                                        <Text style={styles.edit}>
+                                        
+                                            Add
                                         </Text>
                                         </TouchableOpacity>
                                     </View>
@@ -812,7 +822,7 @@ const HomeScreen = ({navigation}) => {
                                         <View style={styles.column_20}>
                                             <Text style={{fontSize:18}}>
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
-                                            &#163; 300
+                                            &#163; 195
                                             </Text>
                                         </View>
                                     </View>

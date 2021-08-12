@@ -124,10 +124,10 @@ const MakeClaimScreen = ({navigation}) => {
                     )
                 })}
             </View>
-            <View  style={{backgroundColor:"#8e419c", padding:20}}>
-                {/* <Footer/> */}
+            {/* <View  style={{backgroundColor:"#8e419c", padding:20}}>
+                
                 <Text style={{textAlign:"center",color:"#fff"}}>Copyright @ 2021 Ageas.co.uk</Text>
-            </View>
+            </View> */}
         </Container>
     )
 }

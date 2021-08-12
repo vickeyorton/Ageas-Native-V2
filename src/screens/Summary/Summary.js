@@ -65,7 +65,7 @@ const Summary =({navigation}) => {
         <View style={styles.modalView}>
      
         <View style={[styles.header,{borderRadius: 1}]}>
-           <Text style={{fontSize: 20 , color : "white", width: "100%", textAlign:"center" ,fontWeight : "bold"}}>Thankyou</Text>
+           <Text style={{fontSize: 20 , color : "#2c2c2c", width: "100%", textAlign:"center" ,fontWeight : "bold"}}>Thank you</Text>
            </View>
      <View style={styles.content}>
        <Text style={styles.para1}>Thank you for submitting your claim, one of our claim handlers will be in touch by the end of the next working day.</Text>
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   header : {
    justifyContent: 'space-between',
    flexDirection: 'row', 
-   backgroundColor :  '#8e419c' ,
+  //  backgroundColor :  '#8e419c' ,
    padding : 7,
    //marginTop:5
   },

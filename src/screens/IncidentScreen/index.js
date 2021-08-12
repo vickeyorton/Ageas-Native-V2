@@ -433,23 +433,24 @@ const IncidentScreen = ({navigation}) => {
                     <View style={styles.imgContainer}>
                         
                         <View style={{alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-around',}}>
-        <View style={{flexDirection: 'column',justifyContent:"space-between",}}>
-        <Text style={{paddingBottom:15,fontSize:16,}}>Take a Photo</Text>
-        <TouchableOpacity onPress={()=>{openCameraHandle()}}>
-                        <ImageBackground source ={{
-                            uri: imageCam
-                        }} style={{height:85, width:90,marginBottom:"auto",}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
-                        </View>
-                        <View style={{flexDirection: 'column',justifyContent:"space-between"}}>
-                        <Text style={{paddingVertical:10,fontSize:16}}>Upload a Photo</Text>
-                        <TouchableOpacity onPress={()=>{openGalleryHandle()}}>
-                        <ImageBackground source ={{
-                            uri: imageGal
-                        }} style={{height:100, width:100,marginBottom:"auto"}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
-                        </View>
-                        
+                        flexDirection: 'row',
+                        justifyContent: 'space-around',}}>
+                            <View style={{flexDirection: 'column',justifyContent:"space-between",alignItems:"center",}}>
+                                <Text style={{paddingBottom:15,fontSize:16,textAlign:"center"}}>Take photo</Text>
+                                <TouchableOpacity onPress={()=>{openCameraHandle()}}>
+                                    <ImageBackground source ={{
+                                        uri: imageCam
+                                    }} style={{height:85, width:90,marginBottom:"auto",}} imageStyle={{borderRadius:15}}></ImageBackground>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{flexDirection: 'column',justifyContent:"space-between",alignItems:"center",}}>
+                                <Text style={{paddingVertical:10,fontSize:16,textAlign:"center"}}>Upload photo</Text>
+                                <TouchableOpacity onPress={()=>{openGalleryHandle()}}>
+                                <ImageBackground source ={{
+                                    uri: imageGal
+                                }} style={{height:100, width:100,marginBottom:"auto"}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
+                            </View>
+                                
                         </View>
                     {/* <CustomBtn 
                                 bgColor={color.white} color={color.purple} 
