@@ -90,9 +90,9 @@ const AuthScreen = ({navigation}) => {
                     
                 {/* </View> */}
             </View>
-            <View  style={{backgroundColor:"#fad5fcc0", padding:20, }}>
+            <View  style={{backgroundColor:color.purple, padding:20}}>
                 {/* <Footer/> */}
-                <Text style={{textAlign:"center",color:color.purple, fontWeight:"bold"}}>Copyright @ 2021 ageas.co.uk</Text>
+                <Text style={{textAlign:"center",color:"#fff", fontWeight:"bold"}}>Copyright @ 2021 ageas.co.uk</Text>
             </View>
         </Container>
     )

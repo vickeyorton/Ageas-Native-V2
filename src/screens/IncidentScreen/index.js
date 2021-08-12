@@ -44,7 +44,8 @@ const IncidentScreen = ({navigation}) => {
     const [a1,setA1] = useState(true);
     const [other,setOther] = useState(false);
     const [vehicleReg, setVehicleReg] = useState("SN67 ANX");
-    const [image, setImage] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
+    const [imageGal, setImageGal] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
+    const [imageCam, setImageCam] = useState('https://blog.ted.com/wp-content/uploads/sites/2/2014/12/8photography_tips.png')
 
     // useEffect(() => {
         const incident = useSelector(state => state.CarReducer.incident);
@@ -59,7 +60,8 @@ const IncidentScreen = ({navigation}) => {
             setSelectedSituation(incident.situation);
             onChangeStreet(incident.street);
             onChangeTown(incident.town);
-            setImage(incident.image);
+            setImage(incident.imageGal);
+            setImage(incident.imageCam);
         }
       },[]);
     
@@ -112,7 +114,7 @@ const IncidentScreen = ({navigation}) => {
             cropping: true
           }).then(image => {
             console.log(image);
-            setImage(image.path)
+            setImageGal(image.path)
           });
     }
 
@@ -123,7 +125,7 @@ const IncidentScreen = ({navigation}) => {
             cropping: true,
           }).then(image => {
             console.log(image);
-            setImage(image.path)
+            setImageCam(image.path)
           });
     }
 
@@ -139,7 +141,8 @@ const IncidentScreen = ({navigation}) => {
                 street:street,
                 town:town,
                 situation:selectedSituation,
-                image:image
+                imageGal:imageGal,
+                imageCam:imageCam
             }
             dispatch({type:GET_INCIDENT, payload:incident});
             navigation.navigate(INVOLVED_PAGE);
@@ -428,12 +431,27 @@ const IncidentScreen = ({navigation}) => {
                         </View>
                     </View>
                     <View style={styles.imgContainer}>
-                        <Text style={{paddingVertical:10,fontSize:16}}>Upload a photo</Text>
-                        <ImageBackground source ={{
-                            uri: image
-                        }} style={{height:100, width:100,marginBottom:10}} imageStyle={{borderRadius:15}}></ImageBackground>
                         
-                    <CustomBtn 
+                        <View style={{alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',}}>
+        <View style={{flexDirection: 'column',justifyContent:"space-between",}}>
+        <Text style={{paddingBottom:15,fontSize:16,}}>Take a Photo</Text>
+        <TouchableOpacity onPress={()=>{openCameraHandle()}}>
+                        <ImageBackground source ={{
+                            uri: imageCam
+                        }} style={{height:85, width:90,marginBottom:"auto",}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
+                        </View>
+                        <View style={{flexDirection: 'column',justifyContent:"space-between"}}>
+                        <Text style={{paddingVertical:10,fontSize:16}}>Upload a Photo</Text>
+                        <TouchableOpacity onPress={()=>{openGalleryHandle()}}>
+                        <ImageBackground source ={{
+                            uri: imageGal
+                        }} style={{height:100, width:100,marginBottom:"auto"}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
+                        </View>
+                        
+                        </View>
+                    {/* <CustomBtn 
                                 bgColor={color.white} color={color.purple} 
                                 borderColor={color.purple} title="Upload a photo"
                                 onPress={()=>{openGalleryHandle()}}
@@ -447,7 +465,7 @@ const IncidentScreen = ({navigation}) => {
                                 onPress={()=>{openCameraHandle()}}
                                 borderRadius={0}
                                 width="100%"
-                        />                  
+                        />                   */}
                     </View>
                     <View style={{flex:1,flexDirection:"row",paddingVertical:10,paddingVertical:20}}>
                         <CustomBtn 
