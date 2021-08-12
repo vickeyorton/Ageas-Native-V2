@@ -43,7 +43,7 @@ const IncidentScreen = ({navigation}) => {
     const [town, onChangeTown] = useState(null);
     const [a1,setA1] = useState(true);
     const [other,setOther] = useState(false);
-    const [vehicleReg, setVehicleReg] = useState("A1");
+    const [vehicleReg, setVehicleReg] = useState("SN67 ANX");
     const [image, setImage] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
 
     // useEffect(() => {
@@ -68,7 +68,7 @@ const IncidentScreen = ({navigation}) => {
         setA1(!a1);
         setOther(!other);
         if(a1){
-            setVehicleReg("A1");
+            setVehicleReg("SN67 ANX");
         }else if(other){
             setVehicleReg("Other/Unknown");
         }else{
@@ -428,7 +428,7 @@ const IncidentScreen = ({navigation}) => {
                         </View>
                     </View>
                     <View style={styles.imgContainer}>
-                        <Text style={{paddingVertical:10,fontSize:16}}>Upload an image</Text>
+                        <Text style={{paddingVertical:10,fontSize:16}}>Upload a photo</Text>
                         <ImageBackground source ={{
                             uri: image
                         }} style={{height:100, width:100,marginBottom:10}} imageStyle={{borderRadius:15}}></ImageBackground>
