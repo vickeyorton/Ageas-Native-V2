@@ -64,8 +64,8 @@ const Summary =({navigation}) => {
         <View style={styles.centeredView}>
         <View style={styles.modalView}>
      
-        <View style={[styles.header,{borderRadius: 20}]}>
-           <Text style={{fontSize: 18 , color : "white", width: "100%", textAlign:"center"}}>Thankyou</Text>
+        <View style={[styles.header,{borderRadius: 1}]}>
+           <Text style={{fontSize: 20 , color : "white", width: "100%", textAlign:"center" ,fontWeight : "bold"}}>Thankyou</Text>
            </View>
      <View style={styles.content}>
        <Text style={styles.para1}>Thank you for submitting your claim, one of our claim handlers will be in touch by the end of the next working day.</Text>
@@ -90,7 +90,7 @@ const Summary =({navigation}) => {
       </Text>
       <View style={styles.summaryContent}>
           <View style={styles.header}>
-           <Text style={{fontSize: 18 , color : "white"}}>Contact details</Text>
+           <Text style={{fontSize: 18 , color : "white" ,fontWeight : "bold"}}>Contact details</Text>
             <TouchableOpacity onPress={() => setShowContact(!showContact)}>
               {showContact ? (
                 <AntDesign name="up" size={18} color="white" />
@@ -133,7 +133,7 @@ const Summary =({navigation}) => {
 
         <View style={styles.summaryContent}>
           <View style={styles.header}>
-           <Text style={{fontSize: 18 , color : "white"}}>Incident details</Text>
+           <Text style={{fontSize: 18 , color : "white",fontWeight : "bold"}}>Incident details</Text>
             <TouchableOpacity onPress={() => setShowIncident(!showIncident)}>
               {showIncident ? (
                 <AntDesign name="up" size={18} color="white" />
@@ -180,7 +180,7 @@ const Summary =({navigation}) => {
       
         <View style={styles.summaryContent}>
           <View style={styles.header}>
-           <Text style={{fontSize: 18 , color : "white"}}>Involved parties details</Text>
+           <Text style={{fontSize: 18 , color : "white" ,fontWeight : "bold"}}>Involved parties details</Text>
             <TouchableOpacity onPress={() => setShowInvolved(!showInvolved)}>
               {showInvolved ? (
                 <AntDesign name="up" size={18} color="white" />
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
    flexDirection: 'row', 
    backgroundColor :  '#8e419c' ,
    padding : 7,
-   marginTop:5
+   //marginTop:5
   },
   editContainer : {
      justifyContent: 'space-between',
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 5,
     alignItems: "center",
     shadowColor: "#000",
