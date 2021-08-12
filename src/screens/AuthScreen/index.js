@@ -18,9 +18,19 @@ const AuthScreen = ({navigation}) => {
                 <TouchableOpacity
                     // onPress={()=>{toggleDrawer()}}
                 >
-                    <MaterialIcon style={{padding:10}} color="#fff" name="menu" size={25}></MaterialIcon>
+                    <MaterialIcon style={{padding:10}} color={color.purple} name="menu" size={25}></MaterialIcon>
                 </TouchableOpacity>
             ),
+            headerTitle: () => (
+                <Image
+                  style={{width: 100, height: 45}}
+                  source={require('../../assets/images/ageas-title-logo.png')}
+                />
+              ),
+              headerStyle:{
+                  backgroundColor:"#fad5fcc0",
+                  borderWidth:1,
+              }
         });
     }, [])
 
@@ -67,9 +77,9 @@ const AuthScreen = ({navigation}) => {
                     
                 {/* </View> */}
             </View>
-            <View  style={{backgroundColor:"#8e419c", padding:20,}}>
+            <View  style={{backgroundColor:"#fad5fcc0", padding:20,}}>
                 {/* <Footer/> */}
-                <Text style={{textAlign:"center",color:"#fff"}}>Copyright @ 2021 ageas.co.uk</Text>
+                <Text style={{textAlign:"center",color:color.purple, fontWeight:"bold"}}>Copyright @ 2021 ageas.co.uk</Text>
             </View>
         </Container>
     )
