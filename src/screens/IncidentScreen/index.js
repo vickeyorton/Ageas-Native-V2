@@ -43,7 +43,7 @@ const IncidentScreen = ({navigation}) => {
     const [town, onChangeTown] = useState(null);
     const [a1,setA1] = useState(true);
     const [other,setOther] = useState(false);
-    const [vehicleReg, setVehicleReg] = useState("A1");
+    const [vehicleReg, setVehicleReg] = useState("SN67 ANX");
     const [imageGal, setImageGal] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
     const [imageCam, setImageCam] = useState('https://blog.ted.com/wp-content/uploads/sites/2/2014/12/8photography_tips.png')
 
@@ -70,7 +70,7 @@ const IncidentScreen = ({navigation}) => {
         setA1(!a1);
         setOther(!other);
         if(a1){
-            setVehicleReg("A1");
+            setVehicleReg("SN67 ANX");
         }else if(other){
             setVehicleReg("Other/Unknown");
         }else{

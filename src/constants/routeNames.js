@@ -1,5 +1,5 @@
 export const MAKE_CLAIM_PAGE = "Make a claim";
-export const HOME_PAGE = "Welcome Daniel";
+export const HOME_PAGE = "Welcome Daniel !";
 export const CLAIM_PAGE = "Car claim details";
 export const AUTH_PAGE = "ageas";
 export const SIGNIN_PAGE = "Sign in";

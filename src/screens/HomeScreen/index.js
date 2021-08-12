@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import Container from '../../components/common/Container';
-import { View, Text ,TouchableOpacity} from 'react-native';
+import { View, Text ,TouchableOpacity,Image} from 'react-native';
 import color from '../../assets/theme/color';
 import {MAKE_CLAIM_PAGE} from '../../constants/routeNames';
 import Input from '../../components/common/Input';
@@ -145,23 +145,123 @@ const HomeScreen = ({navigation}) => {
                 </View>
                 
                 
-
+                
                 <View style={{
                     // paddingBottom:10,
-                    backgroundColor:"#bce4e9",
+                    // backgroundColor:"#bce4e9",
                     // backgroundColor:"#ebecf0",
                     paddingVertical:20,
-                    paddingHorizontal:5 ,
-                    borderRadius:10,
-                    marginTop:10,
-                    marginBottom:20,
-                    shadowColor: 'black',
-                    shadowOpacity: 0.9,
-                    elevation: 10}}>
+                    // paddingHorizontal:5 ,
+                    // borderRadius:10,
+                    // marginTop:10,
+                    // marginBottom:20,
+                    // shadowColor: 'black',
+                    // shadowOpacity: 0.9,
+                    // elevation: 10
+                    }}>
+                    <View style={[styles.row,{justifyContent:"space-between"}]}>
+                        <View style={[styles.column_33,{
+                         backgroundColor:"#edbf05",
+                         // backgroundColor:"#26c8d4",
+                        //  width:70,height:70,
+                         borderRadius:10,
+                         paddingHorizontal:10,
+                         paddingVertical:20,
+                         alignItems:"center",
+                         justifyContent:"center",
+                         marginBottom:5,
+                         shadowColor: 'black',
+                         shadowOpacity: 0.9,
+                         elevation: 10,}
+                         ]}>
+                            <View style={{flex:1,alignItems:"center"}}>
+                                <View style={{}}
+                                   >
+                                    <Text style={{color:"#fff",
+                                        fontSize:25,fontWeight:"bold",paddingVertical:15}}>1</Text>
+                                        
+                                </View>
+                                
+                                <Text style={{color:"#fff",
+                                        fontSize:16,fontWeight:"700",textAlign:"center",
+                                        // paddingBottom:10
+                                        }}>No.of Policies</Text>
+                                        {/* <Image
+                                        style={{width: 100, height: 100}}
+                                        source={require('../../assets/images/policy.png')}
+                                        /> */}
+                            </View>
+                        </View>
+                        <View style={[styles.column_33,{
+                            backgroundColor:"#d30535",
+                            // width:70,height:70,
+                            borderRadius:10,
+                            paddingHorizontal:10,
+                            paddingVertical:20,
+                            alignItems:"center",
+                            justifyContent:"center",
+                            marginBottom:5,
+                            shadowColor: 'black',
+                            shadowOpacity: 0.9,
+                            elevation: 10,
+                            }
+                        
+                            ]}>
+                            <View style={{flex:1,alignItems:"center",}}>
+                                <View style={{}}>
+                                    <Text style={{color:"#fff",
+                                        fontSize:25,fontWeight:"bold",paddingVertical:15}}>1</Text>
+                                </View>
+                                <Text style={{color:"#fff",
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>No.of Claims</Text>
+                            </View>
+                        </View>
+                        <View style={[styles.column_33,{
+                            backgroundColor:"#262163",
+                            // width:70,height:70,
+                            borderRadius:10,
+                            paddingHorizontal:10,
+                            paddingVertical:20,
+                            alignItems:"center",
+                            justifyContent:"center",
+                            marginBottom:5,
+                            shadowColor: 'black',
+                            shadowOpacity: 0.9,
+                            elevation: 10,
+                        }
+                        ]}>
+                            <View style={{flex:1,alignItems:"center",}}>
+                                <View style={{}}>
+                                    <Text style={{color:"#fff",
+                                        fontSize:25,fontWeight:"bold",paddingVertical:15}}> &#163;195</Text>
+                                    
+                                </View>
+                                <Text style={{color:"#fff",
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>Claimed Amount</Text>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+
+                {/* <View style={{
+                    // paddingBottom:10,
+                    // backgroundColor:"#bce4e9",
+                    // backgroundColor:"#ebecf0",
+                    paddingVertical:20,
+                    // paddingHorizontal:5 ,
+                    // borderRadius:10,
+                    // marginTop:10,
+                    // marginBottom:20,
+                    // shadowColor: 'black',
+                    // shadowOpacity: 0.9,
+                    // elevation: 10
+                    }}>
                     <View style={styles.row}>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center"}}>
-                                <View style={{backgroundColor:"#26c8d4",
+                                <View style={{
+                                    backgroundColor:"#262163",
+                                    // backgroundColor:"#26c8d4",
                                     width:70,height:70,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
@@ -179,7 +279,8 @@ const HomeScreen = ({navigation}) => {
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{backgroundColor:"#26c8d4",
+                                <View style={{
+                                    backgroundColor:"#d30535",
                                     width:70,height:70,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
@@ -196,7 +297,7 @@ const HomeScreen = ({navigation}) => {
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{backgroundColor:"#26c8d4",
+                                <View style={{backgroundColor:"#ffcc00",
                                     width:70,height:70,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
@@ -209,11 +310,11 @@ const HomeScreen = ({navigation}) => {
                                     
                                 </View>
                                 <Text style={{color:color.purple,
-                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>Approved Claims Amount</Text>
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>Claimed Amount</Text>
                             </View>
                         </View>
                     </View>
-                </View>
+                </View> */}
                 <View>
                     {showEditPersonal ? 
                         <View style={styles.summaryContent}>

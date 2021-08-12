@@ -49,7 +49,8 @@ export default StyleSheet.create({
           flexDirection:"row"
       },
       column_33:{
-          width:"33.33%"
+          width:"30%",
+          // width:"33.33%"
       },
       column_80:{
         width:"80%"
