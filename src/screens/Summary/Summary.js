@@ -105,20 +105,20 @@ const Summary =({navigation}) => {
               <View style={{marginBottom: 7}}>
                 <Text style={{fontSize : 16}}>Home telephone number</Text>
                 <Text style={{fontSize : 16}}>
-                  {contactObj ? contactObj.HousePhone : '-'}
+                  {contactObj ? contactObj.HousePhone : '0345 165 0920'}
                  </Text>
               </View>
               <View style={{marginBottom: 7}}>
                 <Text style={{fontSize : 16}}>Mobile number</Text>
                 <Text style={{fontSize : 16}}>
-                  {contactObj ? contactObj.MobilePhone : '-'}
+                  {contactObj ? contactObj.MobilePhone : '7896545789'}
                 </Text>
               </View>
               <View  style={styles.editContainer} >
               <View>
                 <Text style={{fontSize : 16}}>Email address</Text>
                 <Text style={{fontSize : 16}}>
-                   {contactObj ? contactObj.Email : '-'}
+                   {contactObj ? contactObj.Email : 'daniel@uk.com'}
                 </Text>
               </View>
               <View style={styles.editSection}>

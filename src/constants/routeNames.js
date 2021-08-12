@@ -1,7 +1,7 @@
 export const MAKE_CLAIM_PAGE = "Make a claim";
 export const HOME_PAGE = "Welcome Daniel";
 export const CLAIM_PAGE = "Car claim details";
-export const AUTH_PAGE = "Welcome";
+export const AUTH_PAGE = "ageas";
 export const SIGNIN_PAGE = "Sign in";
 export const HOME_NAVIGATOR = "Home";
 export const INCIDENT_PAGE = "Incident details";

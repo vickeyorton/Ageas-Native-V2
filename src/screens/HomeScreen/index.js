@@ -138,13 +138,19 @@ const HomeScreen = ({navigation}) => {
         <Container>
             <View style={styles.padding_20}>
                 
+            <View style={{marginVertical:15}}>
+                    <CustomBtn bgColor={color.success} color="#fff" borderColor={color.success} title="Make a claim" 
+                    onPress={()=>{claim()}}
+                    />
+                </View>
+
                 <View style={{paddingBottom:10}}>
                     <View style={styles.row}>
                         <View style={styles.column_33}>
-                            <View style={{flex:1,alignItems:"center",}}>
+                            <View style={{flex:1,alignItems:"center"}}>
                                 <View style={{backgroundColor:color.purple,
-                                    width:60,height:60,
-                                    padding:10,
+                                    width:70,height:70,
+                                    // padding:10,
                                     borderRadius:100,
                                     alignItems:"center",
                                     justifyContent:"center",
@@ -154,14 +160,14 @@ const HomeScreen = ({navigation}) => {
                                     
                                 </View>
                                 <Text style={{color:color.purple,
-                                        fontSize:16,fontWeight:"700"}}>No.of Policies</Text>
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>No.of Policies</Text>
                             </View>
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
                                 <View style={{backgroundColor:color.purple,
-                                    width:60,height:60,
-                                    padding:10,
+                                    width:70,height:70,
+                                    // padding:10,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
                                     marginBottom:5}}>
@@ -169,23 +175,23 @@ const HomeScreen = ({navigation}) => {
                                         fontSize:20,fontWeight:"700"}}>1</Text>
                                 </View>
                                 <Text style={{color:color.purple,
-                                        fontSize:16,fontWeight:"700"}}>No.of claims</Text>
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>No.of Claims</Text>
                             </View>
                         </View>
                         <View style={styles.column_33}>
                             <View style={{flex:1,alignItems:"center",}}>
                                 <View style={{backgroundColor:color.purple,
-                                    width:60,height:60,
-                                    padding:10,
+                                    width:70,height:70,
+                                    // padding:10,
                                     borderRadius:100,alignItems:"center",
                                     justifyContent:"center",
                                     marginBottom:5}}>
                                     <Text style={{color:"#fff",
-                                        fontSize:20,fontWeight:"700"}}>0</Text>
+                                        fontSize:20,fontWeight:"700"}}> &#163;595</Text>
                                     
                                 </View>
                                 <Text style={{color:color.purple,
-                                        fontSize:16,fontWeight:"700"}}>Approved claim amount</Text>
+                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>Approved Claims Amount</Text>
                             </View>
                         </View>
                     </View>
@@ -269,14 +275,14 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{marginBottom: 7}}>
                                     <Text style={{fontSize : 16}}>Policy holder</Text>
                                     <Text style={{fontSize : 16}}>
-                                    {policyHolder ? policyHolder : '-'}
+                                    {policyHolder ? policyHolder : 'Daniel'}
                                     {/* {policyHolder} */}
                                     </Text>
                                 </View>
                                 <View style={{marginBottom: 7}}>
                                     <Text style={{fontSize : 16}}>Mobile number</Text>
                                     <Text style={{fontSize : 16}}>
-                                    {policyMobile ? policyMobile: '-'}
+                                    {policyMobile ? policyMobile: '7896545789'}
                                     {/* {policyMobile} */}
                                     </Text>
                                 </View>
@@ -284,7 +290,7 @@ const HomeScreen = ({navigation}) => {
                                     <View>
                                         <Text style={{fontSize : 16}}>Email address</Text>
                                         <Text style={{fontSize : 16}}>
-                                        {policyEmail ? policyEmail : '-'}
+                                        {policyEmail ? policyEmail : 'daniel@uk.com'}
                                         {/* {policyEmail} */}
                                         </Text>
                                     </View>
@@ -293,7 +299,7 @@ const HomeScreen = ({navigation}) => {
                                     <View>
                                         <Text style={{fontSize : 16}}>Address</Text>
                                         <Text style={{fontSize : 16}}>
-                                        {policyAddress ? policyAddress : '-'}
+                                        {policyAddress ? policyAddress : 'ParkTown, London'}
                                         {/* {policyAddress} */}
                                         </Text>
                                     </View>
@@ -562,7 +568,7 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{marginBottom: 7}}>
                                     <Text style={{fontSize : 16}}>Policy number</Text>
                                     <Text style={{fontSize : 16}}>
-                                    {policyNumber ? policyNumber : '-'}
+                                    {policyNumber ? policyNumber : 'PL23786672'}
                                     {/* {policyNumber} */}
                                     </Text>
                                 </View>
@@ -570,9 +576,9 @@ const HomeScreen = ({navigation}) => {
                                     <Text style={{fontSize : 16}}>Start date</Text>
                                     <Text style={{fontSize : 16}}>
                                     {/* {policyObj ? policyObj.start : '-'} */}
-                                    {policyStartDate ? policyStartDate : 'DD'}/
-                                    {policyStartMonth ? policyStartMonth : 'MM'}/
-                                    {policyStartYear ? policyStartYear : 'YYYY'}
+                                    {policyStartDate ? policyStartDate : '01'}/
+                                    {policyStartMonth ? policyStartMonth : 'May'}/
+                                    {policyStartYear ? policyStartYear : '2021'}
                                     </Text>
                                 </View>
                                 <View  style={{marginBottom: 7}}>
@@ -580,9 +586,9 @@ const HomeScreen = ({navigation}) => {
                                         <Text style={{fontSize : 16}}>End date</Text>
                                         <Text style={{fontSize : 16}}>
                                         {/* {policyObj ? policyObj.end : '-'} */}
-                                        {policyEndDate ? policyEndDate : 'DD'}/
-                                        {policyEndMonth ? policyEndMonth : 'MM'}/
-                                        {policyEndYear ? policyEndYear : 'YYYY'}
+                                        {policyEndDate ? policyEndDate : '30'}/
+                                        {policyEndMonth ? policyEndMonth : 'Apr'}/
+                                        {policyEndYear ? policyEndYear : '2022'}
                                         </Text>
                                     </View>
                                 </View>
@@ -590,7 +596,7 @@ const HomeScreen = ({navigation}) => {
                                     <View>
                                         <Text style={{fontSize : 16}}>Vehicle number</Text>
                                         <Text style={{fontSize : 16}}>
-                                        {policyVehicleNum ? policyVehicleNum : '-'}
+                                        {policyVehicleNum ? policyVehicleNum : 'SN67 ANX'}
                                         {/* {policyVehicleNum} */}
                                         </Text>
                                     </View>
@@ -697,11 +703,7 @@ const HomeScreen = ({navigation}) => {
                         ) : null}
                         </View>
                 </View>
-                <View style={{marginVertical:15}}>
-                    <CustomBtn bgColor={color.success} color="#fff" borderColor={color.success} title="Make a claim" 
-                    onPress={()=>{claim()}}
-                    />
-                </View>
+                
             </View>
         </Container>
         

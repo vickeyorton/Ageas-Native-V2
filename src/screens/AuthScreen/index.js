@@ -67,9 +67,10 @@ const AuthScreen = ({navigation}) => {
                     
                 {/* </View> */}
             </View>
-            {/* <View style={{backgroundColor:"#8e419c", padding:20}}>
-                <Footer/>
-            </View> */}
+            <View  style={{backgroundColor:"#8e419c", padding:20,}}>
+                {/* <Footer/> */}
+                <Text style={{textAlign:"center",color:"#fff"}}>Copyright @ 2021 ageas.co.uk</Text>
+            </View>
         </Container>
     )
 }
