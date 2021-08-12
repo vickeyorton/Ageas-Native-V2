@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import { TouchableOpacity, Text, View,Image,ImageBackground } from 'react-native';
+import { TouchableOpacity, Text, View,Image,ImageBackground,Dimensions } from 'react-native';
 import Container from '../../components/common/Container';
 import CustomBtn from '../../components/common/CustomBtn';
 import styles from './styles';
@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import color from '../../assets/theme/color';
 
+const windowHeight = Dimensions.get('window').height;
 const image = { uri: "https://media01.living4media.com/largepreviews/MzQxOTc1ODgw/11031480-Dalmatian-sitting-on-a-black-and-white-carpet-in-front-of-a-sofa.jpg" };
 const AuthScreen = ({navigation}) => {
     const {setOptions, toggleDrawer} = useNavigation();
@@ -37,7 +38,9 @@ const AuthScreen = ({navigation}) => {
     return (
     
         <Container>
-            <View style={{padding:20}}>
+            <View style={{padding:20
+                ,height:windowHeight - 115
+                }}>
                 <Image
                     style={styles.image}
                     source={{
@@ -53,8 +56,13 @@ const AuthScreen = ({navigation}) => {
                 </View> */}
                 {/* <View style={{width:"100%"}}> */}
                     
-                    <View style={{flexDirection:"row",justifyContent:"center",flex:1}}>
-                        <View style={{paddingVertical:10 ,flexDirection:"row",justifyContent:"center"}}>
+                    <View style={{flexDirection:"row",
+                    // justifyContent:"center",
+                    // flex:1
+                    }}>
+                        <View style={{paddingVertical:10 ,flexDirection:"row",
+                        // justifyContent:"center"
+                        }}>
                             <CustomBtn 
                             bgColor={color.success} color="#fff" 
                             borderColor={color.success} title="Sign in" 
@@ -64,8 +72,13 @@ const AuthScreen = ({navigation}) => {
                             />
                         </View>
                     </View>
-                    <View style={{flexDirection:"row",justifyContent:"center",flex:1}}>
-                        <View style={{paddingVertical:10 ,flexDirection:"row",justifyContent:"center"}}>
+                    <View style={{flexDirection:"row",
+                    // justifyContent:"center",
+                    // flex:1
+                    }}>
+                        <View style={{paddingVertical:10 ,flexDirection:"row",
+                        // justifyContent:"center"
+                        }}>
                             <CustomBtn 
                             bgColor="#fff" color={color.success} 
                             borderColor={color.success} title="Sign up" 
@@ -77,7 +90,7 @@ const AuthScreen = ({navigation}) => {
                     
                 {/* </View> */}
             </View>
-            <View  style={{backgroundColor:"#fad5fcc0", padding:20,}}>
+            <View  style={{backgroundColor:"#fad5fcc0", padding:20, }}>
                 {/* <Footer/> */}
                 <Text style={{textAlign:"center",color:color.purple, fontWeight:"bold"}}>Copyright @ 2021 ageas.co.uk</Text>
             </View>
