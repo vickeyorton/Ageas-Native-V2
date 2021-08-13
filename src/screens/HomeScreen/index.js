@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import Container from '../../components/common/Container';
-import { View, Text ,TouchableOpacity,Image,TextInput} from 'react-native';
+import { View, Text ,TouchableOpacity,Image,TextInput,Platform,Button} from 'react-native';
 import color from '../../assets/theme/color';
 import {MAKE_CLAIM_PAGE} from '../../constants/routeNames';
 import Input from '../../components/common/Input';
@@ -12,6 +12,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {useSelector,useDispatch} from 'react-redux';
 import {GET_PERSONAL, GET_POLICY} from '../../context/actions';
 import {Picker} from '@react-native-community/picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const HomeScreen = ({navigation}) => {
 
@@ -37,14 +38,14 @@ const HomeScreen = ({navigation}) => {
     const [policyMobile,setPolicyMobile] = useState("7358471892");
     const [policyEmail,setPolicyEmail] = useState("daniel@uk.com");
     const [policyAddress,setPolicyAddress] = useState("Parktown,London");
-    const [policyNumber,setPolicyNumber] = useState(null);
-    const [policyStartDate, setPolicyStartDate] = useState("");
+    const [policyNumber,setPolicyNumber] = useState("PL23786672");
+    const [policyStartDate, setPolicyStartDate] = useState("01/05/2021");
     const [policyStartMonth, setPolicyStartMonth] = useState("");
     const [policyStartYear, setPolicyStartYear] = useState("");
-    const [policyEndDate, setPolicyEndDate] = useState("");
+    const [policyEndDate, setPolicyEndDate] = useState("30/04/2022");
     const [policyEndMonth, setPolicyEndMonth] = useState("");
     const [policyEndYear, setPolicyEndYear] = useState("");
-    const [policyVehicleNum,setPolicyVehicleNum] = useState(null);
+    const [policyVehicleNum,setPolicyVehicleNum] = useState("SN67 ANX");
     const [isValidEmail,setIsValidEmail] = useState(true);
     const [isValidMnum, setIsValidMnum] = useState(true);
     
@@ -59,6 +60,40 @@ const HomeScreen = ({navigation}) => {
     const policyObj = useSelector(state => state.CarReducer.Policy);
     const claimObj = useSelector(state => state.CarReducer.ClaimObj);
 
+    //
+    
+    const [isPickerStartShow, setIsPickerStartShow] = useState(false);
+    const [isPickerEndShow, setIsPickerEndShow] = useState(false);
+  const [date, setDate] = useState(new Date(Date.now()));
+
+  
+
+  const showPickerStart = () => {
+    setIsPickerStartShow(true);
+  };
+
+  const onChangeStart = (event, value) => {
+    setPolicyStartDate(value.toDateString());
+    changeStartDate(value.toDateString());
+    if (Platform.OS === 'android') {
+      setIsPickerStartShow(false);
+    }
+  };
+
+  const showPickerEnd = () => {
+    setIsPickerEndShow(true);
+  };
+
+  const onChangeEnd = (event, value) => {
+    setPolicyEndDate(value.toDateString());
+    changeEndDate(value.toDateString());
+    if (Platform.OS === 'android') {
+      setIsPickerEndShow(false);
+    }
+  };
+    //
+    
+
     
     // Address Field
     const changeAddress = (val) =>{
@@ -69,6 +104,32 @@ const HomeScreen = ({navigation}) => {
     const changeName = (val) =>{
         setPolicyHolder(val);
         savePersonal();
+    }
+    // policy number field
+
+    const changePolNum=(val)=>{
+        setPolicyNumber(val);
+        savePolicy();
+    }
+
+    // start date field
+    const changeStartDate=(val)=>{
+        setPolicyStartDate(val);
+        savePolicy();
+    }
+
+    //end date field
+
+    const changeEndDate=(val)=>{
+        setPolicyEndDate(val);
+        savePolicy();
+    }
+
+    // vechile number field
+
+    const changeVechNum=(val)=>{
+        setPolicyVehicleNum(val);
+        savePolicy();
     }
 
     useEffect(() => {
@@ -380,7 +441,7 @@ const HomeScreen = ({navigation}) => {
                    <Text style={{fontSize : 16}}>Policy holder</Text>
                    <View style={{padding : 3}}></View>
                    <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                      // onChangeText={(val)=>setPolicyHolder(val)}
                       onChangeText={(val)=>{changeName(val)}}
                       value={policyHolder}
@@ -396,7 +457,7 @@ const HomeScreen = ({navigation}) => {
                    <Text style={{fontSize : 16}}>Mobile number</Text>
                    <View style={{padding : 3}}></View>
                    <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}} 
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}} 
                        onChangeText={e => handleValidMobile(e)}
                        value={policyMobile}
                      />
@@ -416,7 +477,7 @@ const HomeScreen = ({navigation}) => {
                    <Text style={{fontSize : 16}}>Email address</Text>
                    <View style={{padding : 3}}></View>
                    <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                       onChangeText={(e)=>{handleValidEmail(e)}}
                       value={policyEmail}
                      />
@@ -436,7 +497,7 @@ const HomeScreen = ({navigation}) => {
                    <Text style={{fontSize : 16}}>Address</Text>
                    <View style={{padding : 3}}></View>
                    <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                     //    onChangeText={(val)=>setPolicyAddress(val)}
                         onChangeText={(val)=>{changeAddress(val)}}
                        value={policyAddress}
@@ -698,70 +759,163 @@ const HomeScreen = ({navigation}) => {
                             
                             </View>
                             {showPolicy ? (
-                                <View style={{ padding : 10}}>
-                                <View style={{marginBottom: 7}}>
-                                    <Text style={{fontSize : 16}}>Policy number</Text>
-                                    <Text style={{fontSize : 16}}>
-                                    {policyNumber ? policyNumber : 'PL23786672'}
-                                    {/* {policyNumber} */}
-                                    </Text>
+                                <View>
+                                <View className="policyDetails">
+                                  <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                                     <Text style={{fontSize : 16}}>Policy number</Text>
+                                     <View style={{padding : 3}}></View>
+                                     <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
+                                       // onChangeText={(val)=>setPolicyHolder(val)}
+                                        onChangeText={(val)=>{changePolNum(val)}}
+                                        value={policyNumber}
+                                       />
+                                       <TouchableOpacity>
+                                          <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                                       </TouchableOpacity>
+                                     </View>
+                                   </View>
                                 </View>
-                                <View style={{marginBottom: 7}}>
-                                    <Text style={{fontSize : 16}}>Start date</Text>
-                                    <Text style={{fontSize : 16}}>
-                                    {/* {policyObj ? policyObj.start : '-'} */}
-                                    {policyStartDate ? policyStartDate : '01'}/
-                                    {policyStartMonth ? policyStartMonth : 'May'}/
-                                    {policyStartYear ? policyStartYear : '2021'}
-                                    </Text>
+                                <View className="policyDetails">
+                                  <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                                     <Text style={{fontSize : 16}}>Start date</Text>
+                                     <View style={{padding : 3}}></View>
+                                     <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}} 
+                                         onChangeText={e => changeStartDate(e)}
+                                         value={policyStartDate}
+                                       />
+                                       <TouchableOpacity onPress={showPickerStart}>
+                                          <MaterialIcon style={{padding:10}} color="#8e419c" name="event" size={20}></MaterialIcon>
+                                       </TouchableOpacity>
+                                     </View>
+                                   </View>
                                 </View>
-                                <View  style={{marginBottom: 7}}>
-                                    <View>
-                                        <Text style={{fontSize : 16}}>End date</Text>
-                                        <Text style={{fontSize : 16}}>
-                                        {/* {policyObj ? policyObj.end : '-'} */}
-                                        {policyEndDate ? policyEndDate : '30'}/
-                                        {policyEndMonth ? policyEndMonth : 'Apr'}/
-                                        {policyEndYear ? policyEndYear : '2022'}
-                                        </Text>
-                                    </View>
+                                <View className="policyDetails">
+                                  <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                                     <Text style={{fontSize : 16}}>End date</Text>
+                                     <View style={{padding : 3}}></View>
+                                     <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
+                                        onChangeText={(e)=>{changeEndDate(e)}}
+                                        value={policyEndDate}
+                                       />
+                                       <TouchableOpacity onPress={showPickerEnd}>
+                                          <MaterialIcon style={{padding:10}} color="#8e419c" name="event" size={20}></MaterialIcon>
+                                       </TouchableOpacity>
+                                      
+                                     </View>
+                                    
+                                   </View>
                                 </View>
-                                <View  style={{marginBottom: 7}} >
-                                    <View>
-                                        <Text style={{fontSize : 16}}>Vehicle number</Text>
-                                        <Text style={{fontSize : 16}}>
-                                        {policyVehicleNum ? policyVehicleNum : 'SN67 ANX'}
-                                        {/* {policyVehicleNum} */}
-                                        </Text>
-                                    </View>
+                                <View className="policyDetails">
+                                  <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                                     <Text style={{fontSize : 16}}>Vechile number</Text>
+                                     <View style={{padding : 3}}></View>
+                                     <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
+                                      //    onChangeText={(val)=>setPolicyAddress(val)}
+                                          onChangeText={(val)=>{changeVechNum(val)}}
+                                         value={policyVehicleNum}
+                                       />
+                                       <TouchableOpacity >
+                                          <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                                       </TouchableOpacity>
+                                     </View>
+                                   </View>
                                 </View>
-                                <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
-                                    <View style={[styles.editSection,{marginRight:20}]}>
-                                        <TouchableOpacity onPress={() => editPolicy()}>
-                                        <Text style={styles.edit}>
-                                        {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
-                                            Edit
-                                        </Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View style={[styles.editSection,{marginRight:20}]}>
-                                        <TouchableOpacity >
-                                        <Text style={styles.edit}>
-                                        {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
-                                            View
-                                        </Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View style={styles.editSection}>
-                                        <TouchableOpacity >
-                                        <Text style={styles.edit}>
+                                <View style={styles.container}>
+      
+
+      
+      {/* The startdate picker */}
+      {isPickerStartShow && (
+        <DateTimePicker
+          value={date}
+          mode={'date'}
+          display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+          is24Hour={true}
+          onChange={onChangeStart}
+          style={styles.datePicker}
+        />
+      )}
+      {/* The end date picker */}
+      {isPickerEndShow && (
+        <DateTimePicker
+          value={date}
+          mode={'date'}
+          display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+          is24Hour={true}
+          onChange={onChangeEnd}
+          style={styles.datePicker}
+        />
+      )}
+    </View>
+                                                  </View>
+                            //     <View style={{ padding : 10}}>
+                            //     <View style={{marginBottom: 7}}>
+                            //         <Text style={{fontSize : 16}}>Policy number</Text>
+                            //         <Text style={{fontSize : 16}}>
+                            //         {policyNumber ? policyNumber : 'PL23786672'}
+                            //         {/* {policyNumber} */}
+                            //         </Text>
+                            //     </View>
+                            //     <View style={{marginBottom: 7}}>
+                            //         <Text style={{fontSize : 16}}>Start date</Text>
+                            //         <Text style={{fontSize : 16}}>
+                            //         {/* {policyObj ? policyObj.start : '-'} */}
+                            //         {policyStartDate ? policyStartDate : '01'}/
+                            //         {policyStartMonth ? policyStartMonth : 'May'}/
+                            //         {policyStartYear ? policyStartYear : '2021'}
+                            //         </Text>
+                            //     </View>
+                            //     <View  style={{marginBottom: 7}}>
+                            //         <View>
+                            //             <Text style={{fontSize : 16}}>End date</Text>
+                            //             <Text style={{fontSize : 16}}>
+                            //             {/* {policyObj ? policyObj.end : '-'} */}
+                            //             {policyEndDate ? policyEndDate : '30'}/
+                            //             {policyEndMonth ? policyEndMonth : 'Apr'}/
+                            //             {policyEndYear ? policyEndYear : '2022'}
+                            //             </Text>
+                            //         </View>
+                            //     </View>
+                            //     <View  style={{marginBottom: 7}} >
+                            //         <View>
+                            //             <Text style={{fontSize : 16}}>Vehicle number</Text>
+                            //             <Text style={{fontSize : 16}}>
+                            //             {policyVehicleNum ? policyVehicleNum : 'SN67 ANX'}
+                            //             {/* {policyVehicleNum} */}
+                            //             </Text>
+                            //         </View>
+                            //     </View>
+                            //     <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
+                            //         <View style={[styles.editSection,{marginRight:20}]}>
+                            //             <TouchableOpacity onPress={() => editPolicy()}>
+                            //             <Text style={styles.edit}>
+                            //             {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
+                            //                 Edit
+                            //             </Text>
+                            //             </TouchableOpacity>
+                            //         </View>
+                            //         <View style={[styles.editSection,{marginRight:20}]}>
+                            //             <TouchableOpacity >
+                            //             <Text style={styles.edit}>
+                            //             {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
+                            //                 View
+                            //             </Text>
+                            //             </TouchableOpacity>
+                            //         </View>
+                            //         <View style={styles.editSection}>
+                            //             <TouchableOpacity >
+                            //             <Text style={styles.edit}>
                                         
-                                            Add
-                                        </Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
-                            </View>
+                            //                 Add
+                            //             </Text>
+                            //             </TouchableOpacity>
+                            //         </View>
+                            //     </View>
+                            // </View>
                         ) : null}
                         </View>
                     }
