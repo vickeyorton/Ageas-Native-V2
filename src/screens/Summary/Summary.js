@@ -64,7 +64,9 @@ const Summary =({navigation}) => {
         <View style={styles.centeredView}>
         <View style={styles.modalView}>
      
-        <View style={[styles.header,{borderRadius: 1}]}>
+        <View style={{borderRadius: 1,justifyContent: 'space-between',
+   flexDirection: 'row', 
+   padding : 7,}}>
            <Text style={{fontSize: 20 , color : "#2c2c2c", width: "100%", textAlign:"center" ,fontWeight : "bold"}}>Thank you</Text>
            </View>
      <View style={styles.content}>
@@ -260,7 +262,7 @@ const styles = StyleSheet.create({
   header : {
    justifyContent: 'space-between',
    flexDirection: 'row', 
-  //  backgroundColor :  '#8e419c' ,
+   backgroundColor :  '#8e419c' ,
    padding : 7,
    //marginTop:5
   },

@@ -136,14 +136,24 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <Container style={{backgroundColor:"#fff"}}>
-            <View style={styles.padding_20}>
+            <View style={styles.padding_10}>
                 
-            <View style={{marginVertical:15}}>
-                    <CustomBtn bgColor={color.success} color="#fff" borderColor={color.success} title="Make a claim" 
-                    onPress={()=>{claim()}}
-                    />
-                </View>
-                
+            
+                <View style={{
+                    // paddingBottom:10,
+                    // backgroundColor:"#bce4e9",
+                    backgroundColor:"#fad5fcc0",
+
+                    paddingVertical:0,
+                    paddingHorizontal:20 ,
+                    borderRadius:10,
+                    // marginTop:10,
+                    marginBottom:20,
+                    borderColor:color.purple,
+                    // shadowColor: 'black',
+                    // shadowOpacity: 0.9,
+                    // elevation: 10
+                    }}>
                 
                 
                 <View style={{
@@ -242,6 +252,12 @@ const HomeScreen = ({navigation}) => {
                         </View>
                     </View>
                 </View>
+                <View style={{marginVertical:15}}>
+                    <CustomBtn bgColor={color.success} color="#fff" borderColor={color.success} title="Make a claim" 
+                    onPress={()=>{claim()}}
+                    />
+                </View>
+            </View>
 
                 {/* <View style={{
                     // paddingBottom:10,
@@ -315,7 +331,7 @@ const HomeScreen = ({navigation}) => {
                         </View>
                     </View>
                 </View> */}
-                <View>
+                <View style={styles.padding_10}>
                     {showEditPersonal ? 
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>

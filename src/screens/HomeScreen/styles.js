@@ -3,6 +3,9 @@ export default StyleSheet.create({
     padding_20:{
         padding:20,
     },
+    padding_10:{
+      padding:10,
+  },
     summaryContent : { 
         borderWidth : 1,
         borderColor : '#8e419c',
