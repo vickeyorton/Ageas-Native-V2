@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import Container from '../../components/common/Container';
-import { View, Text ,TouchableOpacity,Image} from 'react-native';
+import { View, Text ,TouchableOpacity,Image,TextInput} from 'react-native';
 import color from '../../assets/theme/color';
 import {MAKE_CLAIM_PAGE} from '../../constants/routeNames';
 import Input from '../../components/common/Input';
@@ -33,10 +33,10 @@ const HomeScreen = ({navigation}) => {
         
     }
 
-    const [policyHolder,setPolicyHolder] = useState(null);
-    const [policyMobile,setPolicyMobile] = useState(null);
-    const [policyEmail,setPolicyEmail] = useState(null);
-    const [policyAddress,setPolicyAddress] = useState(null);
+    const [policyHolder,setPolicyHolder] = useState("Daniel");
+    const [policyMobile,setPolicyMobile] = useState("7358471892");
+    const [policyEmail,setPolicyEmail] = useState("daniel@uk.com");
+    const [policyAddress,setPolicyAddress] = useState("Parktown,London");
     const [policyNumber,setPolicyNumber] = useState(null);
     const [policyStartDate, setPolicyStartDate] = useState("");
     const [policyStartMonth, setPolicyStartMonth] = useState("");
@@ -58,6 +58,19 @@ const HomeScreen = ({navigation}) => {
     const personalObj = useSelector(state => state.CarReducer.personal);
     const policyObj = useSelector(state => state.CarReducer.Policy);
     const claimObj = useSelector(state => state.CarReducer.ClaimObj);
+
+    
+    // Address Field
+    const changeAddress = (val) =>{
+        setPolicyAddress(val);
+        savePersonal();
+    }
+    // Name field
+    const changeName = (val) =>{
+        setPolicyHolder(val);
+        savePersonal();
+    }
+
     useEffect(() => {
         if(personalObj){
             setPolicyHolder(personalObj.name);
@@ -87,6 +100,7 @@ const HomeScreen = ({navigation}) => {
         if (val.includes('@') && val.includes('.com')) {
             setPolicyEmail(val);
           setIsValidEmail(true);
+          savePersonal();
         } else {
             setPolicyEmail(val);
           setIsValidEmail(false);
@@ -96,13 +110,14 @@ const HomeScreen = ({navigation}) => {
         if (val.trim().length == 10) {
             setPolicyMobile(val);
           setIsValidMnum(true);
+          savePersonal();
         } else {
             setPolicyMobile(val);
           setIsValidMnum(false);
         }
       };
     const savePersonal =() =>{
-        if(policyHolder && policyMobile && policyEmail && policyAddress !== ""){
+        // if(policyHolder && policyMobile && policyEmail && policyAddress !== ""){
             let personal = {
                 name:policyHolder,
                 mobile:policyMobile,
@@ -113,7 +128,7 @@ const HomeScreen = ({navigation}) => {
             setTimeout(() => {
                 setShowEditPersonal(false);
                 }, 400);
-        }
+        // }
     }
     const savePolicy =() =>{
         if(policyNumber && policyStartDate && policyStartMonth && policyStartYear && policyEndDate && policyEndMonth && policyEndYear && policyVehicleNum !== ""){
@@ -346,129 +361,97 @@ const HomeScreen = ({navigation}) => {
                     </View>
                 </View> */}
                 <View style={styles.padding_10}>
-                    {showEditPersonal ? 
-                        <View style={styles.summaryContent}>
-                            <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Personal details</Text>
-                            </View>
-                                <View style={{ padding : 10}}>
-                                <View style={{padding:5}}></View>
-                                    <Input
-                                    label="Policy holder"
-                                    onChangeText={setPolicyHolder}
-                                    value={policyHolder}
-                                    labelFontSize={16}
-                                    />
-                                <View style={{padding:5}}></View>
-                                <View style={{padding:5}}></View>
-                                    <Input
-                                    label="Mobile number"
-                                    onChangeText={e => handleValidMobile(e)}
-                                    value={policyMobile}
-                                    labelFontSize={16}
-                                    />
-                                    {isValidMnum ? null : (
-                                        <Text style={styles.errorMsg}>
-                                        *Mobile number must contain 10 numbers
-                                        </Text>
-                                    )}
-                                <View style={{padding:5}}></View>
-                                <View style={{padding:5}}></View>
-                                    <Input
-                                    label="Email address"
-                                    onChangeText={(e)=>{handleValidEmail(e)}}
-                                    value={policyEmail}
-                                    labelFontSize={16}
-                                    />
-                                    {isValidEmail ? null : (
-                                        <Text style={styles.errorMsg}>
-                                        email must contain "@" and ".com"
-                                        </Text>
-                                    )}
-                                <View style={{padding:5}}></View>
-                                <View style={{padding:5}}></View>
-                                    <Input
-                                    label="Address"
-                                    onChangeText={setPolicyAddress}
-                                    value={policyAddress}
-                                    labelFontSize={16}
-                                    />
-                                <View style={{padding:5}}></View>
-                                
-                                <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
-                                    <View style={styles.saveSection}>
-                                        <TouchableOpacity onPress={() => savePersonal()}>
-                                        <Text style={styles.save}>
-                                            Save
-                                        </Text> 
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                    : 
-                        <View style={styles.summaryContent}>
-                            <View style={styles.header}>
-                                <Text style={{fontSize: 18 , color : "white",fontWeight:"700"}}>Personal details</Text>
-                                    <TouchableOpacity onPress={() => setShowPersonal(!showPersonal)}>
-                                    {showPersonal ? (
-                                        <AntDesign name="up" size={18} color="white" />
-                                    ) : (
-                                        <AntDesign name="down" size={18} color="white" />
-                                    )}
-                                    </TouchableOpacity>
-                            
-                            </View>
-                            {showPersonal ? (
-                                <View style={{ padding : 10}}>
-                                <View style={{marginBottom: 7}}>
-                                    <Text style={{fontSize : 16}}>Policy holder</Text>
-                                    <Text style={{fontSize : 16}}>
-                                    {policyHolder !== null ? policyHolder : 'Daniel'}
-                                    {/* {policyHolder} */}
-                                    </Text>
-                                </View>
-                                <View style={{marginBottom: 7}}>
-                                    <Text style={{fontSize : 16}}>Mobile number</Text>
-                                    <Text style={{fontSize : 16}}>
-                                    {policyMobile ? policyMobile: '7896545789'}
-                                    {/* {policyMobile} */}
-                                    </Text>
-                                </View>
-                                <View  style={{marginBottom: 7}}>
-                                    <View>
-                                        <Text style={{fontSize : 16}}>Email address</Text>
-                                        <Text style={{fontSize : 16}}>
-                                        {policyEmail ? policyEmail : 'daniel@uk.com'}
-                                        {/* {policyEmail} */}
-                                        </Text>
-                                    </View>
-                                </View>
-                                <View  style={{marginBottom: 7}} >
-                                    <View>
-                                        <Text style={{fontSize : 16}}>Address</Text>
-                                        <Text style={{fontSize : 16}}>
-                                        {policyAddress ? policyAddress : 'ParkTown, London'}
-                                        {/* {policyAddress} */}
-                                        </Text>
-                                    </View>
-                                </View>
-                                <View style={{justifyContent:"flex-end", flexDirection:'row'}}>
-                                    <View style={[styles.editSection ]}>
-                                        <TouchableOpacity onPress={() => editPersonal()}>
-                                        <Text style={styles.edit}>
-                                        
-                                            Edit
-                                        </Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    
-                                </View>
-                               
-                            </View>
-                        ) : null}
-                        </View>
-                    }
+                <View style={styles.summaryContent}>
+          <View style={styles.header}>
+           <Text style={{fontSize: 18 , color : "white" ,fontWeight : "bold"}}>Personal details</Text>
+            <TouchableOpacity onPress={() => setShowPersonal(!showPersonal)}>
+              {showPersonal ? (
+                <AntDesign name="up" size={18} color="white" />
+              ) : (
+                <AntDesign name="down" size={18} color="white" />
+              )}
+            </TouchableOpacity>
+          </View>
+          {
+              showPersonal ? 
+             <View>
+              <View className="personalDetails">
+                <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                   <Text style={{fontSize : 16}}>Policy holder</Text>
+                   <View style={{padding : 3}}></View>
+                   <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                     // onChangeText={(val)=>setPolicyHolder(val)}
+                      onChangeText={(val)=>{changeName(val)}}
+                      value={policyHolder}
+                     />
+                     <TouchableOpacity>
+                        <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                     </TouchableOpacity>
+                   </View>
+                 </View>
+              </View>
+              <View className="personalDetails">
+                <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                   <Text style={{fontSize : 16}}>Mobile number</Text>
+                   <View style={{padding : 3}}></View>
+                   <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}} 
+                       onChangeText={e => handleValidMobile(e)}
+                       value={policyMobile}
+                     />
+                     <TouchableOpacity>
+                        <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                     </TouchableOpacity>
+                   </View>
+                   {isValidMnum ? null : (
+                           <Text style={styles.errorMsg}>
+                              *Mobile number must contain 10 numbers
+                           </Text>
+                   )}
+                 </View>
+              </View>
+              <View className="personalDetails">
+                <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                   <Text style={{fontSize : 16}}>Email address</Text>
+                   <View style={{padding : 3}}></View>
+                   <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                      onChangeText={(e)=>{handleValidEmail(e)}}
+                      value={policyEmail}
+                     />
+                     <TouchableOpacity>
+                        <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                     </TouchableOpacity>
+                   </View>
+                    {isValidEmail ? null : (
+                              <Text style={styles.errorMsg}>
+                                 email must contain "@" and ".com"
+                               </Text>
+                   )}
+                 </View>
+              </View>
+              <View className="personalDetails">
+                <View style={{paddingHorizontal : 15,paddingVertical : 5}}>
+                   <Text style={{fontSize : 16}}>Address</Text>
+                   <View style={{padding : 3}}></View>
+                   <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
+                     <TextInput style={{paddingHorizontal: 10,paddingVertical : 4}}
+                    //    onChangeText={(val)=>setPolicyAddress(val)}
+                        onChangeText={(val)=>{changeAddress(val)}}
+                       value={policyAddress}
+                     />
+                     <TouchableOpacity >
+                        <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
+                     </TouchableOpacity>
+                   </View>
+                 </View>
+              </View>
+              </View>: null
+            }
+           
+        </View>
+                    
                     {showEditPolicy ? 
                         <View style={styles.summaryContent}>
                             <View style={styles.header}>
