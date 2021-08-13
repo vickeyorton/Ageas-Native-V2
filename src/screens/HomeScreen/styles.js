@@ -57,6 +57,12 @@ export default StyleSheet.create({
       },
       column_80:{
         width:"80%"
+      },
+      column_50:{
+        width:"50%"
+      },
+      column_30:{
+        width:"30%"
     },
     column_20:{
         width:"20%"

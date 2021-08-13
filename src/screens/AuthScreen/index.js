@@ -19,7 +19,7 @@ const AuthScreen = ({navigation}) => {
                 <TouchableOpacity
                     // onPress={()=>{toggleDrawer()}}
                 >
-                    <MaterialIcon style={{padding:10}} color={color.purple} name="menu" size={25}></MaterialIcon>
+                    {/* <MaterialIcon style={{padding:10}} color={color.purple} name="menu" size={25}></MaterialIcon> */}
                 </TouchableOpacity>
             ),
             headerTitle: () => (

@@ -747,6 +747,14 @@ const HomeScreen = ({navigation}) => {
                                         </Text>
                                         </TouchableOpacity>
                                     </View>
+                                    <View style={[styles.editSection,{marginRight:20}]}>
+                                        <TouchableOpacity >
+                                        <Text style={styles.edit}>
+                                        {/* <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={16}></MaterialIcon> */}
+                                            View
+                                        </Text>
+                                        </TouchableOpacity>
+                                    </View>
                                     <View style={styles.editSection}>
                                         <TouchableOpacity >
                                         <Text style={styles.edit}>
@@ -776,7 +784,7 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{ padding : 10}}>
                                 <View style={{marginBottom: 10}}>
                                     <View style={[styles.row,{alignItems:"center"}]} >
-                                        <View style={styles.column_80}>
+                                        <View style={styles.column_50}>
                                             <Text style={{fontSize:18}}>
                                                 AQ01FH9923
                                             </Text>
@@ -795,11 +803,21 @@ const HomeScreen = ({navigation}) => {
                                             &#163; 620
                                             </Text>
                                         </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>
                                 </View>
                                 <View style={{marginBottom: 10}}>
                                     <View style={[styles.row,{alignItems:"center"}]} >
-                                        <View style={styles.column_80}>
+                                        <View style={styles.column_50}>
                                             <Text style={{fontSize:18}}>
                                                 AQ01FH9949
                                             </Text>
@@ -818,11 +836,21 @@ const HomeScreen = ({navigation}) => {
                                             &#163; 750
                                             </Text>
                                         </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>
                                 </View>
                                 <View style={{marginBottom: 10}}>
                                     <View style={[styles.row,{alignItems:"center"}]} >
-                                        <View style={styles.column_80}>
+                                        <View style={styles.column_50}>
                                             <Text style={{fontSize:18}}>
                                                 AQ01FH9976
                                             </Text>
@@ -834,12 +862,23 @@ const HomeScreen = ({navigation}) => {
                                                     Approved
                                                 </Text>
                                             </View>
+                                            
                                         </View>
                                         <View style={styles.column_20}>
                                             <Text style={{fontSize:18}}>
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
                                             &#163; 195
                                             </Text>
+                                        </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
+                                            </TouchableOpacity>
+                                            {/* <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
+                                                ,justifyContent:"center",width:"45%"}}>
+                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
+                                            </TouchableOpacity> */}
                                         </View>
                                     </View>
                                 </View>

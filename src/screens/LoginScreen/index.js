@@ -37,7 +37,7 @@ const LoginScreen = ({navigation}) => {
             headerRight: () => (
                 <TouchableOpacity
                 >
-                    <MaterialIcon style={{padding:10}} color="#fff" name="menu" size={25}></MaterialIcon>
+                    {/* <MaterialIcon style={{padding:10}} color="#fff" name="menu" size={25}></MaterialIcon> */}
                 </TouchableOpacity>
             ),
         });
