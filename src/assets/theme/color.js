@@ -4,8 +4,9 @@ export default {
     grass:'#5cb85c',
     danger:'#d9534f',
     info:'#5bc0de',
-    warning:'#f0ad4e',
+    warning:'#ffcc00',
     inverse:'#292b2c',
     faded:'#f7f7f7',
-    purple:'#8e419c'
+    purple:'#8e419c',
+    orange:"#f0ad4e"
 }

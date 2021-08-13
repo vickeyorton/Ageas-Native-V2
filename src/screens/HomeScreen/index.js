@@ -160,7 +160,7 @@ const HomeScreen = ({navigation}) => {
                     // paddingBottom:10,
                     // backgroundColor:"#bce4e9",
                     // backgroundColor:"#ebecf0",
-                    paddingVertical:20,
+                    paddingTop:20,
                     // paddingHorizontal:5 ,
                     // borderRadius:10,
                     // marginTop:10,
@@ -171,8 +171,8 @@ const HomeScreen = ({navigation}) => {
                     }}>
                     <View style={[styles.row,{justifyContent:"space-between"}]}>
                         <View style={[styles.column_33,{
-                         backgroundColor:"#edbf05",
-                         // backgroundColor:"#26c8d4",
+                         backgroundColor:"#FF9800",
+                        //  backgroundColor:"#FFC107",
                         //  width:70,height:70,
                          borderRadius:10,
                          paddingHorizontal:10,
@@ -185,21 +185,24 @@ const HomeScreen = ({navigation}) => {
                          elevation: 10,}
                          ]}>
                             <View style={{flex:1,alignItems:"center"}}>
-                                <View style={{}}
+                                <Text style={{color:"#fff",
+                                        fontSize:16,fontWeight:"700",textAlign:"center",
+                                         paddingBottom:15
+                                        }}>No.of Policies
+                                </Text>
+                                <View style={{
+                                    backgroundColor:color.warning,
+                                    // backgroundColor:"#ffcc00",
+                                    width:70,height:70,
+                                    borderRadius:100,
+                                    alignItems:"center",
+                                    borderRadius:100,alignItems:"center",
+                                    justifyContent:"center",}}
                                    >
                                     <Text style={{color:"#fff",
                                         fontSize:25,fontWeight:"bold",paddingVertical:15}}>1</Text>
                                         
                                 </View>
-                                
-                                <Text style={{color:"#fff",
-                                        fontSize:16,fontWeight:"700",textAlign:"center",
-                                        // paddingBottom:10
-                                        }}>No.of Policies</Text>
-                                        {/* <Image
-                                        style={{width: 100, height: 100}}
-                                        source={require('../../assets/images/policy.png')}
-                                        /> */}
                             </View>
                         </View>
                         <View style={[styles.column_33,{
@@ -218,12 +221,18 @@ const HomeScreen = ({navigation}) => {
                         
                             ]}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{}}>
+                                
+                                <Text style={{color:"#fff",
+                                        fontSize:16,fontWeight:"700",textAlign:"center",paddingBottom:15}}>No.of Claims
+                                </Text>
+                                <View style={{backgroundColor:"#f44336",width:70,height:70,
+                                    borderRadius:100,
+                                    alignItems:"center",
+                                    borderRadius:100,alignItems:"center",
+                                    justifyContent:"center",}}>
                                     <Text style={{color:"#fff",
                                         fontSize:25,fontWeight:"bold",paddingVertical:15}}>1</Text>
                                 </View>
-                                <Text style={{color:"#fff",
-                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>No.of Claims</Text>
                             </View>
                         </View>
                         <View style={[styles.column_33,{
@@ -241,13 +250,18 @@ const HomeScreen = ({navigation}) => {
                         }
                         ]}>
                             <View style={{flex:1,alignItems:"center",}}>
-                                <View style={{}}>
-                                    <Text style={{color:"#fff",
-                                        fontSize:25,fontWeight:"bold",paddingVertical:15}}> &#163;195</Text>
-                                    
-                                </View>
+                                
                                 <Text style={{color:"#fff",
-                                        fontSize:16,fontWeight:"700",textAlign:"center"}}>Claimed Amount</Text>
+                                        fontSize:16,fontWeight:"700",textAlign:"center",paddingBottom:15}}>Claimed Amount
+                                </Text>
+                                <View style={{backgroundColor:"#3F51B5",width:70,height:70,
+                                    borderRadius:100,
+                                    alignItems:"center",
+                                    borderRadius:100,alignItems:"center",
+                                    justifyContent:"center",}}>
+                                    <Text style={{color:"#fff",
+                                        fontSize:25,fontWeight:"bold",paddingVertical:15}}>&#163;195</Text>
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -790,29 +804,23 @@ const HomeScreen = ({navigation}) => {
                                             </Text>
                                             <View style={styles.row}>
                                                 <Text style={{fontSize:16}}>
-                                                    4 Aug,  
+                                                    4 Aug, Clarify
                                                 </Text>
-                                                <Text style={{fontSize:16,color:color.warning,paddingHorizontal:10,fontWeight:"700"}}>
+                                                {/* <Text style={{fontSize:16,color:color.warning,paddingHorizontal:10,fontWeight:"700"}}>
                                                     Clarify
-                                                </Text>
+                                                </Text> */}
                                             </View>
                                         </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <MaterialIcon style={{padding:10}} color={color.warning} name="thumbs-up-down" size={25}></MaterialIcon>
+                                        </View>
                                         <View style={styles.column_20}>
-                                            <Text style={{fontSize:18}}>
+                                            <Text style={{fontSize:18,borderBottomWidth:5,borderColor:color.warning}}>
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
                                             &#163; 620
                                             </Text>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
-                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
-                                            </TouchableOpacity>
-                                        </View>
+                                        
                                     </View>
                                 </View>
                                 <View style={{marginBottom: 10}}>
@@ -823,29 +831,23 @@ const HomeScreen = ({navigation}) => {
                                             </Text>
                                             <View style={styles.row}>
                                                 <Text style={{fontSize:16}}>
-                                                    6 Aug,  
+                                                    6 Aug, Rejected  
                                                 </Text>
-                                                <Text style={{fontSize:16,color:color.danger,paddingHorizontal:10,fontWeight:"700"}}>
+                                                {/* <Text style={{fontSize:16,color:color.danger,paddingHorizontal:10,fontWeight:"700"}}>
                                                     Rejected
-                                                </Text>
+                                                </Text> */}
                                             </View>
                                         </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <MaterialIcon style={{padding:10}} color={color.danger} name="thumb-down" size={25}></MaterialIcon>
+                                        </View>
                                         <View style={styles.column_20}>
-                                            <Text style={{fontSize:18}}>
+                                            <Text style={{fontSize:18,borderBottomWidth:5,borderColor:color.danger}}>
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
                                             &#163; 750
                                             </Text>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
-                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
-                                            </TouchableOpacity>
-                                        </View>
+                                        
                                     </View>
                                 </View>
                                 <View style={{marginBottom: 10}}>
@@ -856,30 +858,24 @@ const HomeScreen = ({navigation}) => {
                                             </Text>
                                             <View style={styles.row}>
                                                 <Text style={{fontSize:16}}>
-                                                    6 Aug,  
+                                                    6 Aug, Approved  
                                                 </Text>
-                                                <Text style={{fontSize:16,color:color.success,paddingHorizontal:10,fontWeight:"700"}}>
+                                                {/* <Text style={{fontSize:16,color:color.success,paddingHorizontal:10,fontWeight:"700"}}>
                                                     Approved
-                                                </Text>
+                                                </Text> */}
                                             </View>
                                             
                                         </View>
+                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                            <MaterialIcon style={{padding:10}} color={color.success} name="thumb-up" size={25}></MaterialIcon>
+                                        </View>
                                         <View style={styles.column_20}>
-                                            <Text style={{fontSize:18}}>
-                                            {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
+                                            <Text style={{fontSize:18,borderBottomWidth:5,borderColor:color.success}}>
+                                            
                                             &#163; 195
                                             </Text>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
-                                            <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="remove-red-eye" size={20}></MaterialIcon>
-                                            </TouchableOpacity>
-                                            {/* <TouchableOpacity style={{borderColor:color.purple,borderWidth:1,height:35,alignItems:"center"
-                                                ,justifyContent:"center",width:"45%"}}>
-                                                <MaterialIcon style={{}} color={color.purple} name="edit" size={20}></MaterialIcon>
-                                            </TouchableOpacity> */}
-                                        </View>
+                                        
                                     </View>
                                 </View>
                                 
