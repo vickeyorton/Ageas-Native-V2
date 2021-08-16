@@ -28,14 +28,16 @@ export default StyleSheet.create({
         width : 70,
         height : 35,
         paddingVertical : 5,
+        
       }, 
       saveSection: {
         borderWidth: 1,
         borderColor: '#6FA313',
         backgroundColor:'#6FA313',
-        width : 70,
+        width : "100%",
         height : 35,
         paddingVertical : 5,
+        marginBottom:5
       }, 
       edit: {
         color: '#8e419c',        

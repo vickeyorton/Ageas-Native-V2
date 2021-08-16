@@ -520,6 +520,14 @@ const HomeScreen = ({navigation}) => {
                    </View>
                  </View>
               </View>
+              <View style={{flexDirection:"row",justifyContent:"flex-end", marginRight:15, marginVertical:10}}>
+              <View style={styles.editSection}>
+                <TouchableOpacity  onPress={() => savePersonal()}>
+                  <Text style={styles.edit}>Save</Text>
+                </TouchableOpacity>
+              </View>
+              </View>
+
               </View>: null
             }
            
@@ -838,6 +846,25 @@ const HomeScreen = ({navigation}) => {
                                      </View>
                                    </View>
                                 </View>
+
+                                <View style={{flexDirection:"row",justifyContent:"flex-end", marginVertical:10}}>
+
+                                <View style={{ marginRight:15}}>
+              <View style={styles.editSection}>
+                <TouchableOpacity  onPress={() => savePolicy()}>
+                  <Text style={styles.edit}>Add</Text>
+                </TouchableOpacity>
+              </View>
+              </View>
+                               
+                                <View style={{ marginRight:15}}>
+              <View style={styles.editSection}>
+                <TouchableOpacity  onPress={() => savePolicy()}>
+                  <Text style={styles.edit}>Save</Text>
+                </TouchableOpacity>
+              </View>
+              </View>
+              </View>
                                 <View style={styles.container}>
       
 

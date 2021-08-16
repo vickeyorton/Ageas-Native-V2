@@ -46,6 +46,8 @@ const IncidentScreen = ({navigation}) => {
     const [vehicleReg, setVehicleReg] = useState("SN67 ANX");
     const [imageGal, setImageGal] = useState('https://image.flaticon.com/icons/png/512/685/685686.png')
     const [imageCam, setImageCam] = useState('https://blog.ted.com/wp-content/uploads/sites/2/2014/12/8photography_tips.png')
+    const [camImgName, setCamImgName] = useState(null)    
+    const [galImgName, setGalImgName] = useState(null)
 
     // useEffect(() => {
         const incident = useSelector(state => state.CarReducer.incident);
@@ -114,7 +116,8 @@ const IncidentScreen = ({navigation}) => {
             cropping: true
           }).then(image => {
             console.log(image);
-            setImageGal(image.path)
+            setImageGal(image.path);
+            setGalImgName(image.mime)
           });
     }
 
@@ -125,7 +128,8 @@ const IncidentScreen = ({navigation}) => {
             cropping: true,
           }).then(image => {
             console.log(image);
-            setImageCam(image.path)
+            setImageCam(image.path);
+            setCamImgName(image.mime)
           });
     }
 
@@ -442,6 +446,7 @@ const IncidentScreen = ({navigation}) => {
                                         uri: imageCam
                                     }} style={{height:85, width:90,marginBottom:"auto",}} imageStyle={{borderRadius:15}}></ImageBackground>
                                 </TouchableOpacity>
+                                <Text style={{paddingBottom:15,fontSize:16,textAlign:"center"}}>{camImgName}</Text>
                             </View>
                             <View style={{flexDirection: 'column',justifyContent:"space-between",alignItems:"center",}}>
                                 <Text style={{paddingVertical:10,fontSize:16,textAlign:"center"}}>Upload photo</Text>
@@ -449,6 +454,7 @@ const IncidentScreen = ({navigation}) => {
                                 <ImageBackground source ={{
                                     uri: imageGal
                                 }} style={{height:100, width:100,marginBottom:"auto"}} imageStyle={{borderRadius:15}}></ImageBackground></TouchableOpacity>
+                            <Text style={{paddingBottom:15,fontSize:16,textAlign:"center"}}>{galImgName}</Text>
                             </View>
                                 
                         </View>
