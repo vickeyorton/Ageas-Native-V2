@@ -41,17 +41,22 @@ const AuthScreen = ({navigation}) => {
             <View style={{padding:20
                 ,height:windowHeight - 115
                 }}>
+                {/* <Image
+                  style={{width: "100%", height: 50,position:"absolute",top:30,marginHorizontal:20,zIndex:3}}
+                  source={require('../../assets/images/One-stop.jpg')}
+                /> */}
                 <Image
                     style={styles.image}
-                    source={{
-                    uri:
-                        "https://media01.living4media.com/largepreviews/MzQxOTc1ODgw/11031480-Dalmatian-sitting-on-a-black-and-white-carpet-in-front-of-a-sofa.jpg"
-                    }}
+                    source={
+                        require('../../assets/images/Dalmatian.png')
+                    //     {
+                    // uri:
+                        // "https://media01.living4media.com/largepreviews/MzQxOTc1ODgw/11031480-Dalmatian-sitting-on-a-black-and-white-carpet-in-front-of-a-sofa.jpg"
+
+                    // }
+                }
                 />
-                <Image
-                  style={{width: "100", height: 50}}
-                  source={require('../../assets/images/One-stop.jpg')}
-                />
+                
                 {/* <View style={styles.BgImageContainer}>
                     <ImageBackground source={image} resizeMode="cover" style={styles.Bgimage}>
                     <View style={styles.BgOverlay}>
