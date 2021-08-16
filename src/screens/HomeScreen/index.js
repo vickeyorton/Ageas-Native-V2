@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import Container from '../../components/common/Container';
 import { View, Text ,TouchableOpacity,Image,TextInput,Platform,Button} from 'react-native';
 import color from '../../assets/theme/color';
@@ -60,7 +60,15 @@ const HomeScreen = ({navigation}) => {
     const policyObj = useSelector(state => state.CarReducer.Policy);
     const claimObj = useSelector(state => state.CarReducer.ClaimObj);
 
-    //
+    // refs
+    const polVecNumIn = useRef();
+    const polNumIn = useRef();
+    const perPolHolder = useRef();
+    const perMobNum = useRef();
+    const perEmail = useRef();
+    const perAddress = useRef();
+
+    //date picker
     
     const [isPickerStartShow, setIsPickerStartShow] = useState(false);
     const [isPickerEndShow, setIsPickerEndShow] = useState(false);
@@ -445,8 +453,9 @@ const HomeScreen = ({navigation}) => {
                      // onChangeText={(val)=>setPolicyHolder(val)}
                       onChangeText={(val)=>{changeName(val)}}
                       value={policyHolder}
+                      ref={perPolHolder}
                      />
-                     <TouchableOpacity>
+                     <TouchableOpacity onPress={()=>{perPolHolder.current.focus();}}>
                         <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                      </TouchableOpacity>
                    </View>
@@ -460,8 +469,9 @@ const HomeScreen = ({navigation}) => {
                      <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}} 
                        onChangeText={e => handleValidMobile(e)}
                        value={policyMobile}
+                       ref={perMobNum}
                      />
-                     <TouchableOpacity>
+                     <TouchableOpacity onPress={()=>{perMobNum.current.focus();}}>
                         <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                      </TouchableOpacity>
                    </View>
@@ -480,8 +490,9 @@ const HomeScreen = ({navigation}) => {
                      <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                       onChangeText={(e)=>{handleValidEmail(e)}}
                       value={policyEmail}
+                      ref={perEmail}
                      />
-                     <TouchableOpacity>
+                     <TouchableOpacity onPress={()=>{perEmail.current.focus();}}>
                         <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                      </TouchableOpacity>
                    </View>
@@ -501,8 +512,9 @@ const HomeScreen = ({navigation}) => {
                     //    onChangeText={(val)=>setPolicyAddress(val)}
                         onChangeText={(val)=>{changeAddress(val)}}
                        value={policyAddress}
+                       ref={perAddress}
                      />
-                     <TouchableOpacity >
+                     <TouchableOpacity onPress={()=>{perAddress.current.focus();}}>
                         <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                      </TouchableOpacity>
                    </View>
@@ -769,8 +781,9 @@ const HomeScreen = ({navigation}) => {
                                        // onChangeText={(val)=>setPolicyHolder(val)}
                                         onChangeText={(val)=>{changePolNum(val)}}
                                         value={policyNumber}
+                                        ref={polNumIn}
                                        />
-                                       <TouchableOpacity>
+                                       <TouchableOpacity onPress={()=>{polNumIn.current.focus();}}>
                                           <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                                        </TouchableOpacity>
                                      </View>
@@ -817,8 +830,9 @@ const HomeScreen = ({navigation}) => {
                                       //    onChangeText={(val)=>setPolicyAddress(val)}
                                           onChangeText={(val)=>{changeVechNum(val)}}
                                          value={policyVehicleNum}
+                                         ref={polVecNumIn}
                                        />
-                                       <TouchableOpacity >
+                                       <TouchableOpacity onPress={()=>{polVecNumIn.current.focus();}}>
                                           <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
                                        </TouchableOpacity>
                                      </View>
