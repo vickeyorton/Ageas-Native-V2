@@ -48,6 +48,10 @@ const AuthScreen = ({navigation}) => {
                         "https://media01.living4media.com/largepreviews/MzQxOTc1ODgw/11031480-Dalmatian-sitting-on-a-black-and-white-carpet-in-front-of-a-sofa.jpg"
                     }}
                 />
+                <Image
+                  style={{width: "100", height: 50}}
+                  source={require('../../assets/images/One-stop.jpg')}
+                />
                 {/* <View style={styles.BgImageContainer}>
                     <ImageBackground source={image} resizeMode="cover" style={styles.Bgimage}>
                     <View style={styles.BgOverlay}>

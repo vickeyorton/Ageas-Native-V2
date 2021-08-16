@@ -863,7 +863,7 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{ marginRight:15}}>
               <View style={styles.editSection}>
                 <TouchableOpacity  onPress={() => savePolicy()}>
-                  <Text style={styles.edit}>Add</Text>
+                  <Text style={styles.edit}>Save</Text>
                 </TouchableOpacity>
               </View>
               </View>
@@ -871,7 +871,7 @@ const HomeScreen = ({navigation}) => {
                                 <View style={{ marginRight:15}}>
               <View style={styles.editSection}>
                 <TouchableOpacity  onPress={() => savePolicy()}>
-                  <Text style={styles.edit}>Save</Text>
+                  <Text style={styles.edit}>Add</Text>
                 </TouchableOpacity>
               </View>
               </View>
