@@ -785,7 +785,7 @@ const HomeScreen = ({navigation}) => {
                                      <Text style={{fontSize : 16}}>Policy number</Text>
                                      <View style={{padding : 3}}></View>
                                      <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
+                                       {/* <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                                        // onChangeText={(val)=>setPolicyHolder(val)}
                                         onChangeText={(val)=>{changePolNum(val)}}
                                         value={policyNumber}
@@ -793,7 +793,18 @@ const HomeScreen = ({navigation}) => {
                                        />
                                        <TouchableOpacity onPress={()=>{polNumIn.current.focus();}}>
                                           <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
-                                       </TouchableOpacity>
+                                       </TouchableOpacity> */}
+                                       <Picker
+                                            selectedValue={policyStartDate}
+                                            style={{width: '100%',fontSize : 14,height:35,
+                                            paddingHorizontal: 10,paddingVertical : 4,color:color.purple
+                                        }}
+                                            onValueChange={(itemValue, itemIndex) => setPolicyNumber(itemValue)}
+                                        >
+                                            <Picker.Item label="PL23786672" value="PL23786672" />
+                                            <Picker.Item label="PL33786673" value="PL33786673" />
+                                            <Picker.Item label="PL43786674" value="PL43786674" />
+                                        </Picker>
                                      </View>
                                    </View>
                                 </View>
@@ -989,7 +1000,7 @@ const HomeScreen = ({navigation}) => {
                                                 </Text> */}
                                             </View>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.warning} name="thumbs-up-down" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>
@@ -997,6 +1008,11 @@ const HomeScreen = ({navigation}) => {
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
                                             &#163; 620
                                             </Text>
+                                        </View>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <TouchableOpacity >
+                                          <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={25}></MaterialIcon>
+                                       </TouchableOpacity>
                                         </View>
                                         
                                     </View>
@@ -1016,7 +1032,7 @@ const HomeScreen = ({navigation}) => {
                                                 </Text> */}
                                             </View>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.danger} name="thumb-down" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>
@@ -1044,7 +1060,7 @@ const HomeScreen = ({navigation}) => {
                                             </View>
                                             
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.success} name="thumb-up" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>
