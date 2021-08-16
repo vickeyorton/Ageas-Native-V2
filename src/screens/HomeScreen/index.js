@@ -777,7 +777,7 @@ const HomeScreen = ({navigation}) => {
                                      <Text style={{fontSize : 16}}>Policy number</Text>
                                      <View style={{padding : 3}}></View>
                                      <View style={{width : "90%",borderWidth : 1,borderRadius : 10,justifyContent : "space-between" ,display : "flex",borderColor : "#8e419c",flexDirection : "row",marginHorizontal : "5%",marginVertical : "2%"}}>
-                                       <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
+                                       {/* <TextInput style={{paddingHorizontal: 10,paddingVertical : 4,color:color.purple}}
                                        // onChangeText={(val)=>setPolicyHolder(val)}
                                         onChangeText={(val)=>{changePolNum(val)}}
                                         value={policyNumber}
@@ -785,7 +785,18 @@ const HomeScreen = ({navigation}) => {
                                        />
                                        <TouchableOpacity onPress={()=>{polNumIn.current.focus();}}>
                                           <MaterialIcon style={{padding:10}} color="#8e419c" name="edit" size={20}></MaterialIcon>
-                                       </TouchableOpacity>
+                                       </TouchableOpacity> */}
+                                       <Picker
+                                            selectedValue={policyStartDate}
+                                            style={{width: '100%',fontSize : 14,height:35,
+                                            paddingHorizontal: 10,paddingVertical : 4,color:color.purple
+                                        }}
+                                            onValueChange={(itemValue, itemIndex) => setPolicyNumber(itemValue)}
+                                        >
+                                            <Picker.Item label="PL23786672" value="PL23786672" />
+                                            <Picker.Item label="PL33786673" value="PL33786673" />
+                                            <Picker.Item label="PL43786674" value="PL43786674" />
+                                        </Picker>
                                      </View>
                                    </View>
                                 </View>
