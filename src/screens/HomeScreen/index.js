@@ -948,7 +948,7 @@ const HomeScreen = ({navigation}) => {
                                                 </Text> */}
                                             </View>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.warning} name="thumbs-up-down" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>
@@ -956,6 +956,11 @@ const HomeScreen = ({navigation}) => {
                                             {/* <MaterialIcon style={{padding:10}} color="#fff" name="attach-money" size={25}></MaterialIcon> */}
                                             &#163; 620
                                             </Text>
+                                        </View>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <TouchableOpacity >
+                                          <MaterialIcon style={{padding:10}} color={color.purple} name="edit" size={25}></MaterialIcon>
+                                       </TouchableOpacity>
                                         </View>
                                         
                                     </View>
@@ -975,7 +980,7 @@ const HomeScreen = ({navigation}) => {
                                                 </Text> */}
                                             </View>
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.danger} name="thumb-down" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>
@@ -1003,7 +1008,7 @@ const HomeScreen = ({navigation}) => {
                                             </View>
                                             
                                         </View>
-                                        <View style={[styles.column_30,{flexDirection:"row",justifyContent:"space-between"}]}>
+                                        <View style={[styles.column_20,{flexDirection:"row",justifyContent:"space-between"}]}>
                                             <MaterialIcon style={{padding:10}} color={color.success} name="thumb-up" size={25}></MaterialIcon>
                                         </View>
                                         <View style={styles.column_20}>

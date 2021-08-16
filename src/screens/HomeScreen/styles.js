@@ -67,6 +67,9 @@ export default StyleSheet.create({
     column_20:{
         width:"20%"
     },
+    column_10:{
+      width:"10%",
+    },
       center:{
           justifyContent:"center",
           flex:1,
