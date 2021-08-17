@@ -22,14 +22,15 @@ const AuthScreen = ({navigation}) => {
                     {/* <MaterialIcon style={{padding:10}} color={color.purple} name="menu" size={25}></MaterialIcon> */}
                 </TouchableOpacity>
             ),
-            headerTitle: () => (
-                <Image
-                  style={{width: 100, height: 45}}
-                  source={require('../../assets/images/ageas-title-logo.png')}
-                />
-              ),
+            // headerTitle: () => (
+            //     <Image
+            //       style={{width: 100, height: 45}}
+            //       source={require('../../assets/images/ageas-title-logo.png')}
+            //     />
+            //   ),
               headerStyle:{
-                  backgroundColor:"#fad5fcc0",
+                //   backgroundColor:"#fad5fcc0",
+                backgroundColor:color.purple,
                   borderWidth:1,
               }
         });
