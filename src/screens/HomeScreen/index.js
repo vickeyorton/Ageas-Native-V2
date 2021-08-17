@@ -1079,6 +1079,22 @@ const HomeScreen = ({navigation}) => {
                 </View>
                 
             </View>
+            <View  style={{backgroundColor:color.purple, padding:5,borderTopLeftRadius:20,borderTopRightRadius:20,shadowColor: 'black',
+                         shadowOpacity: 0.9,
+                         elevation: 10,}}>
+                {/* <Footer/> */}
+                
+                <View style={{flexDirection:"row",justifyContent:"space-around"}}>
+                    <TouchableOpacity style={{alignItems:"center"}}>
+                <MaterialIcon  color="#fff" name="policy" size={25}></MaterialIcon>
+                <Text style={{color:"#fff",textAlign:"center"}}>New policy</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{alignItems:"center"}}>
+                <MaterialIcon  color="#fff" name="help" size={25}></MaterialIcon>
+                <Text style={{color:"#fff",textAlign:"center"}}>Help</Text>
+                </TouchableOpacity>
+                </View>
+            </View>
         </Container>
         
     )
