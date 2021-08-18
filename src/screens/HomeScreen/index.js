@@ -1,6 +1,6 @@
 import React,{useEffect,useState,useRef} from 'react';
 import Container from '../../components/common/Container';
-import { View, Text ,TouchableOpacity,Image,TextInput,Platform,Button} from 'react-native';
+import { View, Text ,TouchableOpacity,Image,TextInput,Platform,Button,ScrollView} from 'react-native';
 import color from '../../assets/theme/color';
 import {MAKE_CLAIM_PAGE} from '../../constants/routeNames';
 import Input from '../../components/common/Input';
@@ -219,7 +219,9 @@ const HomeScreen = ({navigation}) => {
     }
 
     return (
-        <Container style={{backgroundColor:"#fff"}}>
+      <View style={{flex:1}}>
+        <ScrollView >
+
             <View style={styles.padding_10}>
                 
             
@@ -1079,9 +1081,10 @@ const HomeScreen = ({navigation}) => {
                 </View>
                 
             </View>
-            <View  style={{backgroundColor:color.purple, padding:5,borderTopLeftRadius:20,borderTopRightRadius:20,shadowColor: 'black',
+        </ScrollView>
+        <View  style={{backgroundColor:color.purple, padding:5,borderTopLeftRadius:20,borderTopRightRadius:20,shadowColor: 'black',
                          shadowOpacity: 0.9,
-                         elevation: 10,}}>
+                         elevation: 10}}>
                 {/* <Footer/> */}
                 
                 <View style={{flexDirection:"row",justifyContent:"space-around"}}>
@@ -1095,7 +1098,7 @@ const HomeScreen = ({navigation}) => {
                 </TouchableOpacity>
                 </View>
             </View>
-        </Container>
+          </View>
         
     )
 }
