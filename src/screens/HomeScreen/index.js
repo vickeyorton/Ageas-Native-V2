@@ -1090,11 +1090,11 @@ const HomeScreen = ({navigation}) => {
                 <View style={{flexDirection:"row",justifyContent:"space-around"}}>
                     <TouchableOpacity style={{alignItems:"center"}}>
                 <MaterialIcon  color="#fff" name="policy" size={25}></MaterialIcon>
-                <Text style={{color:"#fff",textAlign:"center"}}>New policy</Text>
+                <Text style={{color:"#fff",textAlign:"center"}}>New Policy</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{alignItems:"center"}}>
                 <MaterialIcon  color="#fff" name="help" size={25}></MaterialIcon>
-                <Text style={{color:"#fff",textAlign:"center"}}>Help</Text>
+                <Text style={{color:"#fff",textAlign:"center"}}>Get Help</Text>
                 </TouchableOpacity>
                 </View>
             </View>
