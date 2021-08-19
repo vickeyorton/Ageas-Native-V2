@@ -1089,13 +1089,17 @@ const HomeScreen = ({navigation}) => {
                 
                 <View style={{flexDirection:"row",justifyContent:"space-around"}}>
                     <TouchableOpacity style={{alignItems:"center"}}>
-                <MaterialIcon  color="#fff" name="policy" size={25}></MaterialIcon>
-                <Text style={{color:"#fff",textAlign:"center"}}>New Policy</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center"}}>
-                <MaterialIcon  color="#fff" name="help" size={25}></MaterialIcon>
-                <Text style={{color:"#fff",textAlign:"center"}}>Get Help</Text>
-                </TouchableOpacity>
+                        <MaterialIcon  color="#fff" name="policy" size={25}></MaterialIcon>
+                        <Text style={{color:"#fff",textAlign:"center"}}>New Policy</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{alignItems:"center"}}>
+                        <MaterialIcon  color="#fff" name="add-moderator" size={25}></MaterialIcon>
+                        <Text style={{color:"#fff",textAlign:"center"}}>Renew Policy</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{alignItems:"center"}}>
+                        <MaterialIcon  color="#fff" name="help" size={25}></MaterialIcon>
+                        <Text style={{color:"#fff",textAlign:"center"}}>Get Help</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
           </View>
